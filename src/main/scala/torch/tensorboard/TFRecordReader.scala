@@ -52,7 +52,8 @@ class TFRecordReader(private val input: DataInput, private val crcCheck: Boolean
     else {
       val dataCrc32Bytes = new Array[Byte](4)
       input.readFully(dataCrc32Bytes)
-      val dataCrc32 = fromInt32LE(dataCrc32Bytes)
+      val dataCrc32 = fromFloatLE(dataCrc32Bytes)
+//      val dataCrc32 = fromInt32LE(dataCrc32Bytes)
       if (dataCrc32 != Crc32C.maskedCrc32c(data)) throw new IOException("Data crc32 checking failed: " + dataCrc32 + " != " + Crc32C.maskedCrc32c(data))
     }
     data
@@ -70,5 +71,26 @@ class TFRecordReader(private val input: DataInput, private val crcCheck: Boolean
     val bb = ByteBuffer.wrap(data)
     bb.order(ByteOrder.LITTLE_ENDIAN)
     bb.getInt
+  }
+
+  private def fromInt16LE(data: Array[Byte]) = {
+    assert(data.length == 2)
+    val bb = ByteBuffer.wrap(data)
+    bb.order(ByteOrder.LITTLE_ENDIAN)
+    bb.getShort
+  }
+
+  private def fromFloatLE(data: Array[Byte]) = {
+    assert(data.length == 4)
+    val bb = ByteBuffer.wrap(data)
+    bb.order(ByteOrder.LITTLE_ENDIAN)
+    bb.getFloat
+  }
+
+  private def fromDoubleLE(data: Array[Byte]) = {
+    assert(data.length == 8)
+    val bb = ByteBuffer.wrap(data)
+    bb.order(ByteOrder.LITTLE_ENDIAN)
+    bb.getDouble
   }
 }

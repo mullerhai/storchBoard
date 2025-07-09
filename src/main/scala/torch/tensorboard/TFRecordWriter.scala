@@ -31,7 +31,7 @@ class TFRecordWriter(private val output: DataOutput) {
     output.write(len)
     output.write(toInt32LE(Crc32C.maskedCrc32c(len)))
     output.write(record)
-    output.write(toInt32LE(Crc32C.maskedCrc32c(record)))
+    output.write(toFloatLE(Crc32C.maskedCrc32c(record)))
   }
 
   private def toInt64LE(data: Long) = {
@@ -47,6 +47,30 @@ class TFRecordWriter(private val output: DataOutput) {
     val bb = ByteBuffer.wrap(buff)
     bb.order(ByteOrder.LITTLE_ENDIAN)
     bb.putInt(data)
+    buff
+  }
+
+  private def toInt16LE(data: Short) = {
+    val buff = new Array[Byte](2)
+    val bb = ByteBuffer.wrap(buff)
+    bb.order(ByteOrder.LITTLE_ENDIAN)
+    bb.putShort(data)
+    buff
+  }
+
+  private def toFloatLE(data: Float) = {
+    val buff = new Array[Byte](4)
+    val bb = ByteBuffer.wrap(buff)
+    bb.order(ByteOrder.LITTLE_ENDIAN)
+    bb.putFloat(data)
+    buff
+  }
+
+  private def toDoubleLE(data: Double) = {
+    val buff = new Array[Byte](8)
+    val bb = ByteBuffer.wrap(buff)
+    bb.order(ByteOrder.LITTLE_ENDIAN)
+    bb.putDouble(data)
     buff
   }
 }
