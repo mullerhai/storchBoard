@@ -5,6 +5,7 @@ import org.tensorflow.framework.summary.{DataClass, Summary, SummaryMetadata}
 import org.tensorflow.framework.tensor.TensorProto
 import org.tensorflow.framework.tensor_shape.TensorShapeProto
 import org.tensorflow.framework.types.DataType
+import org.tensorflow.util.event.Event.What.FileVersion
 import org.tensorflow.util.event.SessionLog.SessionStatus
 import org.tensorflow.util.event.{Event, SessionLog, SourceMetadata}
 import torch.tensorboard.{TFRecordReader, TFRecordWriter}
@@ -13,7 +14,7 @@ import java.io.{DataInputStream, DataOutputStream, FileInputStream, FileOutputSt
 
 object TFRecordExampleRealTrue extends App {
   val logDir = "logz"
-  val logFilePath = s"$logDir/events.out.tfevents"//events.out.tfevents"
+  val logFilePath = s"$logDir/events.outs.tfevents"//events.out.tfevents"
 //  val logFilePath = s"$logDir/train29.tfevents"
 
   // 写入日志文件
@@ -146,10 +147,15 @@ object TFRecordExampleRealTrue extends App {
 //                  tensorProto.floatVal.headOption.foreach { floatValue =>
 //                    println(s"Step: ${event.step}, Tag: ${summaryValue.tag}, Value: $floatValue")
 //                  }
+
                 case _ =>
                   println(s"Unsupported value type for Step ${event.step} tag: ${summaryValue.tag} value ${summaryValue.value.simpleValue.get}")
               }
             }
+          case fv: FileVersion =>
+            println(s"FileVersion: ${fv.value}")
+          case  sl : Event.What.SessionLog =>
+            println(s"SessionLog: ${sl.value.status}")
           case _ =>
             println("No summary found in the event")
         }
