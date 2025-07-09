@@ -5,10 +5,10 @@ import org.tensorflow.framework.summary.Summary
 import java.io.{DataInputStream, DataOutputStream, File, InputStream, OutputStream}
 import java.util.Date
 import scala.collection.mutable.ListBuffer
-import org.tensorflow.framework.histogram.{HistogramProto}
+import org.tensorflow.framework.histogram.HistogramProto
 import org.tensorflow.util.event.Event
-import torch.tensorboard.TFRecordReader
-import torch.tensorboard.TFRecordWriter
+import torch.tensorboard.TFEventReader
+import torch.tensorboard.TFEventWriter
 
 // 状态类，原子操作
 class State {
@@ -53,7 +53,7 @@ object EventIO {
     val file = new File(filePath)
     val inputStream = new DataInputStream(fileInputStream(file))
     try {
-      val tfr = new TFRecordReader(inputStream, compressed)
+      val tfr = new TFEventReader(inputStream, compressed)
       val result = new ListBuffer[Event]()
       var res: Array[Byte] = tfr.read
       while (res != null) {
@@ -80,7 +80,7 @@ object EventIO {
     val file = new File(filePath)
     val outputStream = new DataOutputStream(fileOutputStream(file, true))
     try {
-      val tw = new TFRecordWriter(outputStream)
+      val tw = new TFEventWriter(outputStream)
       events.foreach(event => tw.write(event.toByteArray))
     } finally {
       outputStream.close()

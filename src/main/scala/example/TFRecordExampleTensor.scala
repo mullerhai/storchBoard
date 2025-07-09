@@ -7,7 +7,7 @@ import org.tensorflow.framework.tensor_shape.TensorShapeProto
 import org.tensorflow.framework.types.DataType
 import org.tensorflow.util.event.SessionLog.SessionStatus
 import org.tensorflow.util.event.{Event, SessionLog, SourceMetadata}
-import torch.tensorboard.{TFRecordReader, TFRecordWriter}
+import torch.tensorboard.{TFEventReader, TFEventWriter}
 
 import java.io.{DataInputStream, DataOutputStream, FileInputStream, FileOutputStream}
 
@@ -25,7 +25,7 @@ object TFRecordExampleTensor extends App {
   def writeToLogFile(filePath: String): Unit = {
     val fileOutputStream = new FileOutputStream(filePath)
     val dataOutputStream = new DataOutputStream(fileOutputStream)
-    val writer = new TFRecordWriter(dataOutputStream)
+    val writer = new TFEventWriter(dataOutputStream)
     val sourceMetadata = SourceMetadata(
       writer = "tensorboard.summary.writer.event_file_writer" //"tensorflow.core.util.events_writer"
     )
@@ -58,7 +58,7 @@ object TFRecordExampleTensor extends App {
     }
   }
 
-  private def writeScalarEvent(writer: TFRecordWriter, tag: String, value: Double, step: Long): Unit = {
+  private def writeScalarEvent(writer: TFEventWriter, tag: String, value: Double, step: Long): Unit = {
     // 创建 TensorProto 表示标量值
     val tensorProto = TensorProto(
       dtype = DataType.DT_FLOAT,
@@ -124,7 +124,7 @@ object TFRecordExampleTensor extends App {
   def readFromLogFile(filePath: String): Unit = {
     val fileInputStream = new FileInputStream(filePath)
     val dataInputStream = new DataInputStream(fileInputStream)
-    val reader = new TFRecordReader(dataInputStream, false)
+    val reader = new TFEventReader(dataInputStream, false)
 
     try {
       var record: Array[Byte] = reader.read

@@ -1,5 +1,8 @@
+package example
+
 import org.tensorflow.util.event.Event
 import torch.tensorboard.EventIO
+
 import java.io.File
 
 object testEvent {
@@ -26,3 +29,34 @@ object testEvent {
 //    readFromLogFile(logFilePath)
   }
 }
+
+
+//======================================================================
+//Processing event files... (this can take a few minutes)
+//======================================================================
+//
+//These tags are in ./logz/train32R.tfevents:
+//audio -
+//histograms -
+//images -
+//scalars
+//   Loss/train
+//tensor -
+//======================================================================
+//
+//Event statistics for ./logz/train32R.tfevents:
+//audio -
+//graph -
+//histograms -
+//images -
+//scalars
+//   first_step           0
+//   last_step            9
+//   max_step             9
+//   min_step             0
+//   num_steps            10
+//   outoforder_steps     []
+//sessionlog:checkpoint -
+//sessionlog:start -
+//sessionlog:stop -
+//tensor -

@@ -8,14 +8,14 @@ import org.tensorflow.framework.types.DataType
 import org.tensorflow.util.event.Event.What.FileVersion
 import org.tensorflow.util.event.SessionLog.SessionStatus
 import org.tensorflow.util.event.{Event, SessionLog, SourceMetadata}
-import torch.tensorboard.{TFRecordReader, TFRecordWriter}
+import torch.tensorboard.{TFEventReader, TFEventWriter}
 
 import java.io.{DataInputStream, DataOutputStream, FileInputStream, FileOutputStream}
-
+//可用的标签: {'images': [], 'audio': [], 'histograms': [], 'scalars': [], 'distributions': [], 'tensors': [], 'graph': False, 'meta_graph': False, 'run_metadata': []}
 object TFRecordExample3 extends App {
-  val logDir = "logz"
+  val logDir = "logk"
 //  val logFilePath = s"$logDir/events.out.tfevents"
-  val logFilePath = s"$logDir/train31.tfevents"
+  val logFilePath = s"$logDir/train33.tfevents"
 
   // 写入日志文件
   writeToLogFile(logFilePath)
@@ -26,7 +26,7 @@ object TFRecordExample3 extends App {
   def writeToLogFile(filePath: String): Unit = {
     val fileOutputStream = new FileOutputStream(filePath)
     val dataOutputStream = new DataOutputStream(fileOutputStream)
-    val writer = new TFRecordWriter(dataOutputStream)
+    val writer = new TFEventWriter(dataOutputStream)
     val sourceMetadata = SourceMetadata(
       writer = "tensorboard.summary.writer.event_file_writer" //"tensorflow.core.util.events_writer"
     )
@@ -39,11 +39,12 @@ object TFRecordExample3 extends App {
       what = Event.What.SessionLog(SessionLog(status = SessionStatus.START)),
       sourceMetadata = Some(sourceMetadata)
     )
+
     writer.write(eventMeta.toByteArray)
     writer.write(eventSession.toByteArray)
     try {
       // 模拟训练过程
-      val numSteps = 5
+      val numSteps = 50
       for (step <- 0L until numSteps) {
         // 模拟 loss 和 accuracy
         val loss = Math.exp(-step / 10.0)
@@ -59,7 +60,7 @@ object TFRecordExample3 extends App {
     }
   }
 
-  private def writeScalarEvent(writer: TFRecordWriter, tag: String, value: Double, step: Long): Unit = {
+  private def writeScalarEvent(writer: TFEventWriter, tag: String, value: Double, step: Long): Unit = {
     // 创建 TensorProto 表示标量值
     val tensorProto = TensorProto(
       dtype = DataType.DT_FLOAT,
@@ -103,16 +104,17 @@ object TFRecordExample3 extends App {
     )
     // 创建 Event 消息，添加 fileVersion 字段  Event.What.Summary(summary)
     val eventMeta = Event(
-      wallTime = System.currentTimeMillis() / 1000.0,
+      wallTime = System.currentTimeMillis(),
       step = step,
       what = Event.What.FileVersion("brain.Event:2"),
       sourceMetadata = Some(sourceMetadata)
     )//.withFileVersion("brain.Event:2")
 
     val eventData = Event(
-      wallTime = System.currentTimeMillis() / 1000.0,
+      wallTime = System.currentTimeMillis(),
       step = step,
       what = Event.What.Summary(summary),
+
 //      sourceMetadata = Some(sourceMetadata)
     )
     // 序列化 Event 为字节数组 if step == 0 then  eventMeta.toByteArray else
@@ -125,7 +127,7 @@ object TFRecordExample3 extends App {
   def readFromLogFile(filePath: String): Unit = {
     val fileInputStream = new FileInputStream(filePath)
     val dataInputStream = new DataInputStream(fileInputStream)
-    val reader = new TFRecordReader(dataInputStream, false)
+    val reader = new TFEventReader(dataInputStream, false)
 
     try {
       var record: Array[Byte] = reader.read

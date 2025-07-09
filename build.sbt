@@ -4,7 +4,7 @@ import sbt.Def.settings
 
 import scala.collection.immutable.Seq
 
-ThisBuild / tlBaseVersion := "0.1.2" // your current series x.y
+ThisBuild / tlBaseVersion := "0.1.3" // your current series x.y
 //ThisBuild / CoursierCache := file("D:\\coursier")
 ThisBuild / organization := "io.github.mullerhai" //"dev.storch"
 ThisBuild / organizationName := "storch.dev"
@@ -14,7 +14,7 @@ ThisBuild / developers := List(
   // your GitHub handle and name
   tlGitHubDev("mullerhai", "mullerhai")
 )
-ThisBuild / version := "0.1.2"
+ThisBuild / version := "0.1.3"
 
 ThisBuild / scalaVersion := "3.6.4"
 ThisBuild / tlSonatypeUseLegacyHost := false

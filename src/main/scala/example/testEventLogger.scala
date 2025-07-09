@@ -1,17 +1,19 @@
+package example
+
 import org.tensorflow.framework.summary.Summary.Value as SummaryValue
 import org.tensorflow.framework.summary.{DataClass, Summary, SummaryMetadata}
 import org.tensorflow.framework.tensor.TensorProto
 import org.tensorflow.framework.tensor_shape.TensorShapeProto
 import org.tensorflow.framework.types.DataType
-import torch.tensorboard.{TFRecordWriter}
+import torch.tensorboard.TFEventWriter
 
 import java.io.{DataOutputStream, FileOutputStream}
 import java.nio.ByteBuffer
 
 class TensorBoardLogger(logDir: String) {
-  private val logFile = new FileOutputStream(s"$logDir/train.log")
+  private val logFile = new FileOutputStream(s"$logDir/train11.log")
   private val dataOutputStream = new DataOutputStream(logFile)
-  private val writer = new TFRecordWriter(dataOutputStream)
+  private val writer = new TFEventWriter(dataOutputStream)
 
   def logScalar(tag: String, value: Double, step: Long): Unit = {
     // 创建 TensorProto 表示标量值
@@ -65,7 +67,7 @@ class TensorBoardLogger(logDir: String) {
   }
 }
 
-object Main extends App {
+object Mains extends App {
   val logDir = ".//logs"
   val logger = new TensorBoardLogger(logDir)
 
