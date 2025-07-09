@@ -3,9 +3,6 @@
 
 package tensorboard.tfprof_log
 
-import tensorflow.framework.step_stats
-import tensorflow.framework.step_stats.AllocationRecord
-
 /** @param runCount
   *   Can be larger than 1 if run multiple times in loop.
   * @param allStartMicros
@@ -28,15 +25,15 @@ import tensorflow.framework.step_stats.AllocationRecord
   */
 @SerialVersionUID(0L)
 final case class ExecProfile(
-                              runCount: _root_.scala.Long = 0L,
-                              allStartMicros: _root_.scala.Long = 0L,
-                              latestEndMicros: _root_.scala.Long = 0L,
-                              acceleratorExecs: _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime] = _root_.scala.collection.immutable.Map.empty,
-                              cpuExecs: _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime] = _root_.scala.collection.immutable.Map.empty,
-                              memoryExecs: _root_.scala.Seq[tensorboard.tfprof_log.ExecMemory] = _root_.scala.Seq.empty,
-                              allocations: _root_.scala.Seq[AllocationRecord] = _root_.scala.Seq.empty,
-                              devices: _root_.scala.Seq[_root_.scala.Predef.String] = _root_.scala.Seq.empty,
-                              unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
+    runCount: _root_.scala.Long = 0L,
+    allStartMicros: _root_.scala.Long = 0L,
+    latestEndMicros: _root_.scala.Long = 0L,
+    acceleratorExecs: _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime] = _root_.scala.collection.immutable.Map.empty,
+    cpuExecs: _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime] = _root_.scala.collection.immutable.Map.empty,
+    memoryExecs: _root_.scala.Seq[tensorboard.tfprof_log.ExecMemory] = _root_.scala.Seq.empty,
+    allocations: _root_.scala.Seq[org.tensorflow.framework.step_stats.AllocationRecord] = _root_.scala.Seq.empty,
+    devices: _root_.scala.Seq[_root_.scala.Predef.String] = _root_.scala.Seq.empty,
+    unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
     ) extends scalapb.GeneratedMessage with scalapb.lenses.Updatable[ExecProfile] {
     @transient
     private[this] var __serializedSizeMemoized: _root_.scala.Int = 0
@@ -160,9 +157,9 @@ final case class ExecProfile(
     def addAllMemoryExecs(__vs: Iterable[tensorboard.tfprof_log.ExecMemory]): ExecProfile = copy(memoryExecs = memoryExecs ++ __vs)
     def withMemoryExecs(__v: _root_.scala.Seq[tensorboard.tfprof_log.ExecMemory]): ExecProfile = copy(memoryExecs = __v)
     def clearAllocations = copy(allocations = _root_.scala.Seq.empty)
-    def addAllocations(__vs: AllocationRecord *): ExecProfile = addAllAllocations(__vs)
-    def addAllAllocations(__vs: Iterable[AllocationRecord]): ExecProfile = copy(allocations = allocations ++ __vs)
-    def withAllocations(__v: _root_.scala.Seq[AllocationRecord]): ExecProfile = copy(allocations = __v)
+    def addAllocations(__vs: org.tensorflow.framework.step_stats.AllocationRecord *): ExecProfile = addAllAllocations(__vs)
+    def addAllAllocations(__vs: Iterable[org.tensorflow.framework.step_stats.AllocationRecord]): ExecProfile = copy(allocations = allocations ++ __vs)
+    def withAllocations(__v: _root_.scala.Seq[org.tensorflow.framework.step_stats.AllocationRecord]): ExecProfile = copy(allocations = __v)
     def clearDevices = copy(devices = _root_.scala.Seq.empty)
     def addDevices(__vs: _root_.scala.Predef.String *): ExecProfile = addAllDevices(__vs)
     def addAllDevices(__vs: Iterable[_root_.scala.Predef.String]): ExecProfile = copy(devices = devices ++ __vs)
@@ -217,7 +214,7 @@ object ExecProfile extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
     val __acceleratorExecs: _root_.scala.collection.mutable.Builder[(_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime), _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime]] = _root_.scala.collection.immutable.Map.newBuilder[_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime]
     val __cpuExecs: _root_.scala.collection.mutable.Builder[(_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime), _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime]] = _root_.scala.collection.immutable.Map.newBuilder[_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime]
     val __memoryExecs: _root_.scala.collection.immutable.VectorBuilder[tensorboard.tfprof_log.ExecMemory] = new _root_.scala.collection.immutable.VectorBuilder[tensorboard.tfprof_log.ExecMemory]
-    val __allocations: _root_.scala.collection.immutable.VectorBuilder[AllocationRecord] = new _root_.scala.collection.immutable.VectorBuilder[AllocationRecord]
+    val __allocations: _root_.scala.collection.immutable.VectorBuilder[org.tensorflow.framework.step_stats.AllocationRecord] = new _root_.scala.collection.immutable.VectorBuilder[org.tensorflow.framework.step_stats.AllocationRecord]
     val __devices: _root_.scala.collection.immutable.VectorBuilder[_root_.scala.Predef.String] = new _root_.scala.collection.immutable.VectorBuilder[_root_.scala.Predef.String]
     var `_unknownFields__`: _root_.scalapb.UnknownFieldSet.Builder = null
     var _done__ = false
@@ -238,7 +235,7 @@ object ExecProfile extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
         case 58 =>
           __memoryExecs += _root_.scalapb.LiteParser.readMessage[tensorboard.tfprof_log.ExecMemory](_input__)
         case 90 =>
-          __allocations += _root_.scalapb.LiteParser.readMessage[AllocationRecord](_input__)
+          __allocations += _root_.scalapb.LiteParser.readMessage[org.tensorflow.framework.step_stats.AllocationRecord](_input__)
         case 50 =>
           __devices += _input__.readStringRequireUtf8()
         case tag =>
@@ -270,29 +267,29 @@ object ExecProfile extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
         acceleratorExecs = __fieldsMap.get(scalaDescriptor.findFieldByNumber(4).get).map(_.as[_root_.scala.Seq[tensorboard.tfprof_log.ExecProfile.AcceleratorExecsEntry]]).getOrElse(_root_.scala.Seq.empty).iterator.map(tensorboard.tfprof_log.ExecProfile._typemapper_acceleratorExecs.toCustom(_)).toMap,
         cpuExecs = __fieldsMap.get(scalaDescriptor.findFieldByNumber(5).get).map(_.as[_root_.scala.Seq[tensorboard.tfprof_log.ExecProfile.CpuExecsEntry]]).getOrElse(_root_.scala.Seq.empty).iterator.map(tensorboard.tfprof_log.ExecProfile._typemapper_cpuExecs.toCustom(_)).toMap,
         memoryExecs = __fieldsMap.get(scalaDescriptor.findFieldByNumber(7).get).map(_.as[_root_.scala.Seq[tensorboard.tfprof_log.ExecMemory]]).getOrElse(_root_.scala.Seq.empty),
-        allocations = __fieldsMap.get(scalaDescriptor.findFieldByNumber(11).get).map(_.as[_root_.scala.Seq[AllocationRecord]]).getOrElse(_root_.scala.Seq.empty),
+        allocations = __fieldsMap.get(scalaDescriptor.findFieldByNumber(11).get).map(_.as[_root_.scala.Seq[org.tensorflow.framework.step_stats.AllocationRecord]]).getOrElse(_root_.scala.Seq.empty),
         devices = __fieldsMap.get(scalaDescriptor.findFieldByNumber(6).get).map(_.as[_root_.scala.Seq[_root_.scala.Predef.String]]).getOrElse(_root_.scala.Seq.empty)
       )
     case _ => throw new RuntimeException("Expected PMessage")
   }
   def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.tfprof_log.TfprofLogProto.javaDescriptor.getMessageTypes().get(5)
   def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.tfprof_log.TfprofLogProto.scalaDescriptor.messages(5)
-  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-    var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+    var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
     (__number: @_root_.scala.unchecked) match {
       case 4 => __out = tensorboard.tfprof_log.ExecProfile.AcceleratorExecsEntry
       case 5 => __out = tensorboard.tfprof_log.ExecProfile.CpuExecsEntry
       case 7 => __out = tensorboard.tfprof_log.ExecMemory
-      case 11 => __out = step_stats.AllocationRecord
+      case 11 => __out = org.tensorflow.framework.step_stats.AllocationRecord
     }
     __out
   }
-  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] =
-    Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]](
+  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] =
+    Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]](
       _root_.tensorboard.tfprof_log.ExecProfile.AcceleratorExecsEntry,
       _root_.tensorboard.tfprof_log.ExecProfile.CpuExecsEntry
     )
-  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
   lazy val defaultInstance = tensorboard.tfprof_log.ExecProfile(
     runCount = 0L,
     allStartMicros = 0L,
@@ -417,15 +414,15 @@ object ExecProfile extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
     }
     def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.tfprof_log.ExecProfile.javaDescriptor.getNestedTypes().get(0)
     def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.tfprof_log.ExecProfile.scalaDescriptor.nestedMessages(0)
-    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-      var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+      var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
       (__number: @_root_.scala.unchecked) match {
         case 2 => __out = tensorboard.tfprof_log.ExecTime
       }
       __out
     }
-    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
     lazy val defaultInstance = tensorboard.tfprof_log.ExecProfile.AcceleratorExecsEntry(
       key = "",
       value = _root_.scala.None
@@ -564,15 +561,15 @@ object ExecProfile extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
     }
     def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.tfprof_log.ExecProfile.javaDescriptor.getNestedTypes().get(1)
     def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.tfprof_log.ExecProfile.scalaDescriptor.nestedMessages(1)
-    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-      var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+      var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
       (__number: @_root_.scala.unchecked) match {
         case 2 => __out = tensorboard.tfprof_log.ExecTime
       }
       __out
     }
-    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
     lazy val defaultInstance = tensorboard.tfprof_log.ExecProfile.CpuExecsEntry(
       key = "",
       value = _root_.scala.None
@@ -604,7 +601,7 @@ object ExecProfile extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
     def acceleratorExecs: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime]] = field(_.acceleratorExecs)((c_, f_) => c_.copy(acceleratorExecs = f_))
     def cpuExecs: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime]] = field(_.cpuExecs)((c_, f_) => c_.copy(cpuExecs = f_))
     def memoryExecs: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Seq[tensorboard.tfprof_log.ExecMemory]] = field(_.memoryExecs)((c_, f_) => c_.copy(memoryExecs = f_))
-    def allocations: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Seq[AllocationRecord]] = field(_.allocations)((c_, f_) => c_.copy(allocations = f_))
+    def allocations: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Seq[org.tensorflow.framework.step_stats.AllocationRecord]] = field(_.allocations)((c_, f_) => c_.copy(allocations = f_))
     def devices: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Seq[_root_.scala.Predef.String]] = field(_.devices)((c_, f_) => c_.copy(devices = f_))
   }
   final val RUN_COUNT_FIELD_NUMBER = 1
@@ -620,14 +617,14 @@ object ExecProfile extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
   @transient
   private[tfprof_log] val _typemapper_cpuExecs: _root_.scalapb.TypeMapper[tensorboard.tfprof_log.ExecProfile.CpuExecsEntry, (_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime)] = implicitly[_root_.scalapb.TypeMapper[tensorboard.tfprof_log.ExecProfile.CpuExecsEntry, (_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime)]]
   def of(
-          runCount: _root_.scala.Long,
-          allStartMicros: _root_.scala.Long,
-          latestEndMicros: _root_.scala.Long,
-          acceleratorExecs: _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime],
-          cpuExecs: _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime],
-          memoryExecs: _root_.scala.Seq[tensorboard.tfprof_log.ExecMemory],
-          allocations: _root_.scala.Seq[AllocationRecord],
-          devices: _root_.scala.Seq[_root_.scala.Predef.String]
+    runCount: _root_.scala.Long,
+    allStartMicros: _root_.scala.Long,
+    latestEndMicros: _root_.scala.Long,
+    acceleratorExecs: _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime],
+    cpuExecs: _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, tensorboard.tfprof_log.ExecTime],
+    memoryExecs: _root_.scala.Seq[tensorboard.tfprof_log.ExecMemory],
+    allocations: _root_.scala.Seq[org.tensorflow.framework.step_stats.AllocationRecord],
+    devices: _root_.scala.Seq[_root_.scala.Predef.String]
   ): _root_.tensorboard.tfprof_log.ExecProfile = _root_.tensorboard.tfprof_log.ExecProfile(
     runCount,
     allStartMicros,

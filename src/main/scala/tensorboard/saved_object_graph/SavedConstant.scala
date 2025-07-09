@@ -99,9 +99,9 @@ object SavedConstant extends scalapb.GeneratedMessageCompanion[tensorboard.saved
   }
   def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.saved_object_graph.SavedObjectGraphProto.javaDescriptor.getMessageTypes().get(8)
   def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.saved_object_graph.SavedObjectGraphProto.scalaDescriptor.messages(8)
-  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = throw new MatchError(__number)
-  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= throw new MatchError(__number)
+  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
   lazy val defaultInstance = tensorboard.saved_object_graph.SavedConstant(
     operation = ""
   )

@@ -3,9 +3,6 @@
 
 package tensorboard.saved_object_graph
 
-import tensorflow.framework.versions
-import tensorflow.framework.versions.VersionDef
-
 /** A SavedUserObject is an object (in the object-oriented language of the
   * TensorFlow program) of some user- or framework-defined class other than
   * those handled specifically by the other kinds of SavedObjects.
@@ -26,10 +23,10 @@ import tensorflow.framework.versions.VersionDef
   */
 @SerialVersionUID(0L)
 final case class SavedUserObject(
-                                  identifier: _root_.scala.Predef.String = "",
-                                  version: _root_.scala.Option[VersionDef] = _root_.scala.None,
-                                  @scala.deprecated(message="Marked as deprecated in proto file", "") metadata: _root_.scala.Predef.String = "",
-                                  unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
+    identifier: _root_.scala.Predef.String = "",
+    version: _root_.scala.Option[org.tensorflow.framework.versions.VersionDef] = _root_.scala.None,
+    @scala.deprecated(message="Marked as deprecated in proto file", "") metadata: _root_.scala.Predef.String = "",
+    unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
     ) extends scalapb.GeneratedMessage with scalapb.lenses.Updatable[SavedUserObject] {
     @transient
     private[this] var __serializedSizeMemoized: _root_.scala.Int = 0
@@ -87,9 +84,9 @@ final case class SavedUserObject(
       unknownFields.writeTo(_output__)
     }
     def withIdentifier(__v: _root_.scala.Predef.String): SavedUserObject = copy(identifier = __v)
-    def getVersion: VersionDef = version.getOrElse(VersionDef.defaultInstance)
+    def getVersion: org.tensorflow.framework.versions.VersionDef = version.getOrElse(org.tensorflow.framework.versions.VersionDef.defaultInstance)
     def clearVersion: SavedUserObject = copy(version = _root_.scala.None)
-    def withVersion(__v: VersionDef): SavedUserObject = copy(version = Option(__v))
+    def withVersion(__v: org.tensorflow.framework.versions.VersionDef): SavedUserObject = copy(version = Option(__v))
     def withMetadata(__v: _root_.scala.Predef.String): SavedUserObject = copy(metadata = __v)
     def withUnknownFields(__v: _root_.scalapb.UnknownFieldSet) = copy(unknownFields = __v)
     def discardUnknownFields = copy(unknownFields = _root_.scalapb.UnknownFieldSet.empty)
@@ -123,7 +120,7 @@ object SavedUserObject extends scalapb.GeneratedMessageCompanion[tensorboard.sav
   implicit def messageCompanion: scalapb.GeneratedMessageCompanion[tensorboard.saved_object_graph.SavedUserObject] = this
   def parseFrom(`_input__`: _root_.com.google.protobuf.CodedInputStream): tensorboard.saved_object_graph.SavedUserObject = {
     var __identifier: _root_.scala.Predef.String = ""
-    var __version: _root_.scala.Option[VersionDef] = _root_.scala.None
+    var __version: _root_.scala.Option[org.tensorflow.framework.versions.VersionDef] = _root_.scala.None
     var __metadata: _root_.scala.Predef.String = ""
     var `_unknownFields__`: _root_.scalapb.UnknownFieldSet.Builder = null
     var _done__ = false
@@ -134,7 +131,7 @@ object SavedUserObject extends scalapb.GeneratedMessageCompanion[tensorboard.sav
         case 10 =>
           __identifier = _input__.readStringRequireUtf8()
         case 18 =>
-          __version = _root_.scala.Option(__version.fold(_root_.scalapb.LiteParser.readMessage[VersionDef](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
+          __version = _root_.scala.Option(__version.fold(_root_.scalapb.LiteParser.readMessage[org.tensorflow.framework.versions.VersionDef](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
         case 26 =>
           __metadata = _input__.readStringRequireUtf8()
         case tag =>
@@ -156,22 +153,22 @@ object SavedUserObject extends scalapb.GeneratedMessageCompanion[tensorboard.sav
       _root_.scala.Predef.require(__fieldsMap.keys.forall(_.containingMessage eq scalaDescriptor), "FieldDescriptor does not match message type.")
       tensorboard.saved_object_graph.SavedUserObject(
         identifier = __fieldsMap.get(scalaDescriptor.findFieldByNumber(1).get).map(_.as[_root_.scala.Predef.String]).getOrElse(""),
-        version = __fieldsMap.get(scalaDescriptor.findFieldByNumber(2).get).flatMap(_.as[_root_.scala.Option[VersionDef]]),
+        version = __fieldsMap.get(scalaDescriptor.findFieldByNumber(2).get).flatMap(_.as[_root_.scala.Option[org.tensorflow.framework.versions.VersionDef]]),
         metadata = __fieldsMap.get(scalaDescriptor.findFieldByNumber(3).get).map(_.as[_root_.scala.Predef.String]).getOrElse("")
       )
     case _ => throw new RuntimeException("Expected PMessage")
   }
   def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.saved_object_graph.SavedObjectGraphProto.javaDescriptor.getMessageTypes().get(2)
   def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.saved_object_graph.SavedObjectGraphProto.scalaDescriptor.messages(2)
-  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-    var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+    var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
     (__number: @_root_.scala.unchecked) match {
-      case 2 => __out = versions.VersionDef
+      case 2 => __out = org.tensorflow.framework.versions.VersionDef
     }
     __out
   }
-  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
   lazy val defaultInstance = tensorboard.saved_object_graph.SavedUserObject(
     identifier = "",
     version = _root_.scala.None,
@@ -179,17 +176,17 @@ object SavedUserObject extends scalapb.GeneratedMessageCompanion[tensorboard.sav
   )
   implicit class SavedUserObjectLens[UpperPB](_l: _root_.scalapb.lenses.Lens[UpperPB, tensorboard.saved_object_graph.SavedUserObject]) extends _root_.scalapb.lenses.ObjectLens[UpperPB, tensorboard.saved_object_graph.SavedUserObject](_l) {
     def identifier: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field(_.identifier)((c_, f_) => c_.copy(identifier = f_))
-    def version: _root_.scalapb.lenses.Lens[UpperPB, VersionDef] = field(_.getVersion)((c_, f_) => c_.copy(version = _root_.scala.Option(f_)))
-    def optionalVersion: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[VersionDef]] = field(_.version)((c_, f_) => c_.copy(version = f_))
+    def version: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.versions.VersionDef] = field(_.getVersion)((c_, f_) => c_.copy(version = _root_.scala.Option(f_)))
+    def optionalVersion: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[org.tensorflow.framework.versions.VersionDef]] = field(_.version)((c_, f_) => c_.copy(version = f_))
     def metadata: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field(_.metadata)((c_, f_) => c_.copy(metadata = f_))
   }
   final val IDENTIFIER_FIELD_NUMBER = 1
   final val VERSION_FIELD_NUMBER = 2
   final val METADATA_FIELD_NUMBER = 3
   def of(
-          identifier: _root_.scala.Predef.String,
-          version: _root_.scala.Option[VersionDef],
-          metadata: _root_.scala.Predef.String
+    identifier: _root_.scala.Predef.String,
+    version: _root_.scala.Option[org.tensorflow.framework.versions.VersionDef],
+    metadata: _root_.scala.Predef.String
   ): _root_.tensorboard.saved_object_graph.SavedUserObject = _root_.tensorboard.saved_object_graph.SavedUserObject(
     identifier,
     version,

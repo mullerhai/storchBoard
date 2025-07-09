@@ -3,18 +3,13 @@
 
 package tensorboard.cpp_shape_inference
 
-import tensorflow.framework.full_type.FullTypeDef
-import tensorflow.framework.tensor_shape.TensorShapeProto
-import tensorflow.framework.types.DataType
-import tensorflow.framework.{full_type, tensor_shape, types}
-
 /** DISABLED.IfChange
   */
 @SerialVersionUID(0L)
 final case class CppShapeInferenceResult(
-                                          shape: _root_.scala.Option[TensorShapeProto] = _root_.scala.None,
-                                          handleData: _root_.scala.Option[tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleData] = _root_.scala.None,
-                                          unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
+    shape: _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto] = _root_.scala.None,
+    handleData: _root_.scala.Option[tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleData] = _root_.scala.None,
+    unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
     ) extends scalapb.GeneratedMessage with scalapb.lenses.Updatable[CppShapeInferenceResult] {
     @transient
     private[this] var __serializedSizeMemoized: _root_.scala.Int = 0
@@ -55,9 +50,9 @@ final case class CppShapeInferenceResult(
       };
       unknownFields.writeTo(_output__)
     }
-    def getShape: TensorShapeProto = shape.getOrElse(tensor_shape.TensorShapeProto.defaultInstance)
+    def getShape: org.tensorflow.framework.tensor_shape.TensorShapeProto = shape.getOrElse(org.tensorflow.framework.tensor_shape.TensorShapeProto.defaultInstance)
     def clearShape: CppShapeInferenceResult = copy(shape = _root_.scala.None)
-    def withShape(__v: TensorShapeProto): CppShapeInferenceResult = copy(shape = Option(__v))
+    def withShape(__v: org.tensorflow.framework.tensor_shape.TensorShapeProto): CppShapeInferenceResult = copy(shape = Option(__v))
     def getHandleData: tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleData = handleData.getOrElse(tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleData.defaultInstance)
     def clearHandleData: CppShapeInferenceResult = copy(handleData = _root_.scala.None)
     def withHandleData(__v: tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleData): CppShapeInferenceResult = copy(handleData = Option(__v))
@@ -84,7 +79,7 @@ final case class CppShapeInferenceResult(
 object CppShapeInferenceResult extends scalapb.GeneratedMessageCompanion[tensorboard.cpp_shape_inference.CppShapeInferenceResult] {
   implicit def messageCompanion: scalapb.GeneratedMessageCompanion[tensorboard.cpp_shape_inference.CppShapeInferenceResult] = this
   def parseFrom(`_input__`: _root_.com.google.protobuf.CodedInputStream): tensorboard.cpp_shape_inference.CppShapeInferenceResult = {
-    var __shape: _root_.scala.Option[TensorShapeProto] = _root_.scala.None
+    var __shape: _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto] = _root_.scala.None
     var __handleData: _root_.scala.Option[tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleData] = _root_.scala.None
     var `_unknownFields__`: _root_.scalapb.UnknownFieldSet.Builder = null
     var _done__ = false
@@ -93,7 +88,7 @@ object CppShapeInferenceResult extends scalapb.GeneratedMessageCompanion[tensorb
       _tag__ match {
         case 0 => _done__ = true
         case 10 =>
-          __shape = _root_.scala.Option(__shape.fold(_root_.scalapb.LiteParser.readMessage[TensorShapeProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
+          __shape = _root_.scala.Option(__shape.fold(_root_.scalapb.LiteParser.readMessage[org.tensorflow.framework.tensor_shape.TensorShapeProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
         case 34 =>
           __handleData = _root_.scala.Option(__handleData.fold(_root_.scalapb.LiteParser.readMessage[tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleData](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
         case tag =>
@@ -113,37 +108,37 @@ object CppShapeInferenceResult extends scalapb.GeneratedMessageCompanion[tensorb
     case _root_.scalapb.descriptors.PMessage(__fieldsMap) =>
       _root_.scala.Predef.require(__fieldsMap.keys.forall(_.containingMessage eq scalaDescriptor), "FieldDescriptor does not match message type.")
       tensorboard.cpp_shape_inference.CppShapeInferenceResult(
-        shape = __fieldsMap.get(scalaDescriptor.findFieldByNumber(1).get).flatMap(_.as[_root_.scala.Option[TensorShapeProto]]),
+        shape = __fieldsMap.get(scalaDescriptor.findFieldByNumber(1).get).flatMap(_.as[_root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto]]),
         handleData = __fieldsMap.get(scalaDescriptor.findFieldByNumber(4).get).flatMap(_.as[_root_.scala.Option[tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleData]])
       )
     case _ => throw new RuntimeException("Expected PMessage")
   }
   def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.cpp_shape_inference.CppShapeInferenceProto.javaDescriptor.getMessageTypes().get(0)
   def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.cpp_shape_inference.CppShapeInferenceProto.scalaDescriptor.messages(0)
-  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-    var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+    var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
     (__number: @_root_.scala.unchecked) match {
-      case 1 => __out = tensor_shape.TensorShapeProto
+      case 1 => __out = org.tensorflow.framework.tensor_shape.TensorShapeProto
       case 4 => __out = tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleData
     }
     __out
   }
-  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] =
-    Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]](
+  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] =
+    Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]](
       _root_.tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleShapeAndType,
       _root_.tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleData
     )
-  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
   lazy val defaultInstance = tensorboard.cpp_shape_inference.CppShapeInferenceResult(
     shape = _root_.scala.None,
     handleData = _root_.scala.None
   )
   @SerialVersionUID(0L)
   final case class HandleShapeAndType(
-                                       shape: _root_.scala.Option[TensorShapeProto] = _root_.scala.None,
-                                       dtype: DataType = DataType.DT_INVALID,
-                                       `type`: _root_.scala.Option[FullTypeDef] = _root_.scala.None,
-                                       unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
+      shape: _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto] = _root_.scala.None,
+      dtype: org.tensorflow.framework.types.DataType = org.tensorflow.framework.types.DataType.DT_INVALID,
+      `type`: _root_.scala.Option[org.tensorflow.framework.full_type.FullTypeDef] = _root_.scala.None,
+      unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
       ) extends scalapb.GeneratedMessage with scalapb.lenses.Updatable[HandleShapeAndType] {
       @transient
       private[this] var __serializedSizeMemoized: _root_.scala.Int = 0
@@ -197,13 +192,13 @@ object CppShapeInferenceResult extends scalapb.GeneratedMessageCompanion[tensorb
         };
         unknownFields.writeTo(_output__)
       }
-      def getShape: TensorShapeProto = shape.getOrElse(tensor_shape.TensorShapeProto.defaultInstance)
+      def getShape: org.tensorflow.framework.tensor_shape.TensorShapeProto = shape.getOrElse(org.tensorflow.framework.tensor_shape.TensorShapeProto.defaultInstance)
       def clearShape: HandleShapeAndType = copy(shape = _root_.scala.None)
-      def withShape(__v: TensorShapeProto): HandleShapeAndType = copy(shape = Option(__v))
-      def withDtype(__v: DataType): HandleShapeAndType = copy(dtype = __v)
-      def getType: FullTypeDef = `type`.getOrElse(FullTypeDef.defaultInstance)
+      def withShape(__v: org.tensorflow.framework.tensor_shape.TensorShapeProto): HandleShapeAndType = copy(shape = Option(__v))
+      def withDtype(__v: org.tensorflow.framework.types.DataType): HandleShapeAndType = copy(dtype = __v)
+      def getType: org.tensorflow.framework.full_type.FullTypeDef = `type`.getOrElse(org.tensorflow.framework.full_type.FullTypeDef.defaultInstance)
       def clearType: HandleShapeAndType = copy(`type` = _root_.scala.None)
-      def withType(__v: FullTypeDef): HandleShapeAndType = copy(`type` = Option(__v))
+      def withType(__v: org.tensorflow.framework.full_type.FullTypeDef): HandleShapeAndType = copy(`type` = Option(__v))
       def withUnknownFields(__v: _root_.scalapb.UnknownFieldSet) = copy(unknownFields = __v)
       def discardUnknownFields = copy(unknownFields = _root_.scalapb.UnknownFieldSet.empty)
       def getFieldByNumber(__fieldNumber: _root_.scala.Int): _root_.scala.Any = {
@@ -232,9 +227,9 @@ object CppShapeInferenceResult extends scalapb.GeneratedMessageCompanion[tensorb
   object HandleShapeAndType extends scalapb.GeneratedMessageCompanion[tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleShapeAndType] {
     implicit def messageCompanion: scalapb.GeneratedMessageCompanion[tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleShapeAndType] = this
     def parseFrom(`_input__`: _root_.com.google.protobuf.CodedInputStream): tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleShapeAndType = {
-      var __shape: _root_.scala.Option[TensorShapeProto] = _root_.scala.None
-      var __dtype: DataType = types.DataType.DT_INVALID
-      var __type: _root_.scala.Option[FullTypeDef] = _root_.scala.None
+      var __shape: _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto] = _root_.scala.None
+      var __dtype: org.tensorflow.framework.types.DataType = org.tensorflow.framework.types.DataType.DT_INVALID
+      var __type: _root_.scala.Option[org.tensorflow.framework.full_type.FullTypeDef] = _root_.scala.None
       var `_unknownFields__`: _root_.scalapb.UnknownFieldSet.Builder = null
       var _done__ = false
       while (!_done__) {
@@ -242,11 +237,11 @@ object CppShapeInferenceResult extends scalapb.GeneratedMessageCompanion[tensorb
         _tag__ match {
           case 0 => _done__ = true
           case 10 =>
-            __shape = _root_.scala.Option(__shape.fold(_root_.scalapb.LiteParser.readMessage[TensorShapeProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
+            __shape = _root_.scala.Option(__shape.fold(_root_.scalapb.LiteParser.readMessage[org.tensorflow.framework.tensor_shape.TensorShapeProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
           case 16 =>
-            __dtype = types.DataType.fromValue(_input__.readEnum())
+            __dtype = org.tensorflow.framework.types.DataType.fromValue(_input__.readEnum())
           case 34 =>
-            __type = _root_.scala.Option(__type.fold(_root_.scalapb.LiteParser.readMessage[FullTypeDef](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
+            __type = _root_.scala.Option(__type.fold(_root_.scalapb.LiteParser.readMessage[org.tensorflow.framework.full_type.FullTypeDef](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
           case tag =>
             if (_unknownFields__ == null) {
               _unknownFields__ = new _root_.scalapb.UnknownFieldSet.Builder()
@@ -265,47 +260,47 @@ object CppShapeInferenceResult extends scalapb.GeneratedMessageCompanion[tensorb
       case _root_.scalapb.descriptors.PMessage(__fieldsMap) =>
         _root_.scala.Predef.require(__fieldsMap.keys.forall(_.containingMessage eq scalaDescriptor), "FieldDescriptor does not match message type.")
         tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleShapeAndType(
-          shape = __fieldsMap.get(scalaDescriptor.findFieldByNumber(1).get).flatMap(_.as[_root_.scala.Option[TensorShapeProto]]),
-          dtype = types.DataType.fromValue(__fieldsMap.get(scalaDescriptor.findFieldByNumber(2).get).map(_.as[_root_.scalapb.descriptors.EnumValueDescriptor]).getOrElse(types.DataType.DT_INVALID.scalaValueDescriptor).number),
-          `type` = __fieldsMap.get(scalaDescriptor.findFieldByNumber(4).get).flatMap(_.as[_root_.scala.Option[FullTypeDef]])
+          shape = __fieldsMap.get(scalaDescriptor.findFieldByNumber(1).get).flatMap(_.as[_root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto]]),
+          dtype = org.tensorflow.framework.types.DataType.fromValue(__fieldsMap.get(scalaDescriptor.findFieldByNumber(2).get).map(_.as[_root_.scalapb.descriptors.EnumValueDescriptor]).getOrElse(org.tensorflow.framework.types.DataType.DT_INVALID.scalaValueDescriptor).number),
+          `type` = __fieldsMap.get(scalaDescriptor.findFieldByNumber(4).get).flatMap(_.as[_root_.scala.Option[org.tensorflow.framework.full_type.FullTypeDef]])
         )
       case _ => throw new RuntimeException("Expected PMessage")
     }
     def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.cpp_shape_inference.CppShapeInferenceResult.javaDescriptor.getNestedTypes().get(0)
     def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.cpp_shape_inference.CppShapeInferenceResult.scalaDescriptor.nestedMessages(0)
-    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-      var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+      var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
       (__number: @_root_.scala.unchecked) match {
-        case 1 => __out = tensor_shape.TensorShapeProto
-        case 4 => __out = full_type.FullTypeDef
+        case 1 => __out = org.tensorflow.framework.tensor_shape.TensorShapeProto
+        case 4 => __out = org.tensorflow.framework.full_type.FullTypeDef
       }
       __out
     }
-    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = {
+    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= {
       (__fieldNumber: @_root_.scala.unchecked) match {
-        case 2 => types.DataType
+        case 2 => org.tensorflow.framework.types.DataType
       }
     }
     lazy val defaultInstance = tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleShapeAndType(
       shape = _root_.scala.None,
-      dtype = types.DataType.DT_INVALID,
+      dtype = org.tensorflow.framework.types.DataType.DT_INVALID,
       `type` = _root_.scala.None
     )
     implicit class HandleShapeAndTypeLens[UpperPB](_l: _root_.scalapb.lenses.Lens[UpperPB, tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleShapeAndType]) extends _root_.scalapb.lenses.ObjectLens[UpperPB, tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleShapeAndType](_l) {
-      def shape: _root_.scalapb.lenses.Lens[UpperPB, TensorShapeProto] = field(_.getShape)((c_, f_) => c_.copy(shape = _root_.scala.Option(f_)))
-      def optionalShape: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[TensorShapeProto]] = field(_.shape)((c_, f_) => c_.copy(shape = f_))
-      def dtype: _root_.scalapb.lenses.Lens[UpperPB, DataType] = field(_.dtype)((c_, f_) => c_.copy(dtype = f_))
-      def `type`: _root_.scalapb.lenses.Lens[UpperPB, FullTypeDef] = field(_.getType)((c_, f_) => c_.copy(`type` = _root_.scala.Option(f_)))
-      def optionalType: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[FullTypeDef]] = field(_.`type`)((c_, f_) => c_.copy(`type` = f_))
+      def shape: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.tensor_shape.TensorShapeProto] = field(_.getShape)((c_, f_) => c_.copy(shape = _root_.scala.Option(f_)))
+      def optionalShape: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto]] = field(_.shape)((c_, f_) => c_.copy(shape = f_))
+      def dtype: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.types.DataType] = field(_.dtype)((c_, f_) => c_.copy(dtype = f_))
+      def `type`: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.full_type.FullTypeDef] = field(_.getType)((c_, f_) => c_.copy(`type` = _root_.scala.Option(f_)))
+      def optionalType: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[org.tensorflow.framework.full_type.FullTypeDef]] = field(_.`type`)((c_, f_) => c_.copy(`type` = f_))
     }
     final val SHAPE_FIELD_NUMBER = 1
     final val DTYPE_FIELD_NUMBER = 2
     final val TYPE_FIELD_NUMBER = 4
     def of(
-            shape: _root_.scala.Option[TensorShapeProto],
-            dtype: DataType,
-            `type`: _root_.scala.Option[FullTypeDef]
+      shape: _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto],
+      dtype: org.tensorflow.framework.types.DataType,
+      `type`: _root_.scala.Option[org.tensorflow.framework.full_type.FullTypeDef]
     ): _root_.tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleShapeAndType = _root_.tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleShapeAndType(
       shape,
       dtype,
@@ -432,15 +427,15 @@ object CppShapeInferenceResult extends scalapb.GeneratedMessageCompanion[tensorb
     }
     def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.cpp_shape_inference.CppShapeInferenceResult.javaDescriptor.getNestedTypes().get(1)
     def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.cpp_shape_inference.CppShapeInferenceResult.scalaDescriptor.nestedMessages(1)
-    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-      var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+      var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
       (__number: @_root_.scala.unchecked) match {
         case 2 => __out = tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleShapeAndType
       }
       __out
     }
-    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
     lazy val defaultInstance = tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleData(
       isSet = false,
       shapeAndType = _root_.scala.Seq.empty
@@ -462,16 +457,16 @@ object CppShapeInferenceResult extends scalapb.GeneratedMessageCompanion[tensorb
   }
   
   implicit class CppShapeInferenceResultLens[UpperPB](_l: _root_.scalapb.lenses.Lens[UpperPB, tensorboard.cpp_shape_inference.CppShapeInferenceResult]) extends _root_.scalapb.lenses.ObjectLens[UpperPB, tensorboard.cpp_shape_inference.CppShapeInferenceResult](_l) {
-    def shape: _root_.scalapb.lenses.Lens[UpperPB, TensorShapeProto] = field(_.getShape)((c_, f_) => c_.copy(shape = _root_.scala.Option(f_)))
-    def optionalShape: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[TensorShapeProto]] = field(_.shape)((c_, f_) => c_.copy(shape = f_))
+    def shape: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.tensor_shape.TensorShapeProto] = field(_.getShape)((c_, f_) => c_.copy(shape = _root_.scala.Option(f_)))
+    def optionalShape: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto]] = field(_.shape)((c_, f_) => c_.copy(shape = f_))
     def handleData: _root_.scalapb.lenses.Lens[UpperPB, tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleData] = field(_.getHandleData)((c_, f_) => c_.copy(handleData = _root_.scala.Option(f_)))
     def optionalHandleData: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleData]] = field(_.handleData)((c_, f_) => c_.copy(handleData = f_))
   }
   final val SHAPE_FIELD_NUMBER = 1
   final val HANDLE_DATA_FIELD_NUMBER = 4
   def of(
-          shape: _root_.scala.Option[TensorShapeProto],
-          handleData: _root_.scala.Option[tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleData]
+    shape: _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto],
+    handleData: _root_.scala.Option[tensorboard.cpp_shape_inference.CppShapeInferenceResult.HandleData]
   ): _root_.tensorboard.cpp_shape_inference.CppShapeInferenceResult = _root_.tensorboard.cpp_shape_inference.CppShapeInferenceResult(
     shape,
     handleData

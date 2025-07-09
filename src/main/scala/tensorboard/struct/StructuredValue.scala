@@ -3,11 +3,6 @@
 
 package tensorboard.struct
 
-import tensorflow.framework.tensor.TensorProto
-import tensorflow.framework.tensor_shape.TensorShapeProto
-import tensorflow.framework.types.DataType
-import tensorflow.framework.{tensor, tensor_shape, types}
-
 /** `StructuredValue` represents a dynamically typed value representing various
   * data structures that are inspired by Python data structures typically used in
   * TensorFlow functions as inputs and outputs.
@@ -217,10 +212,10 @@ final case class StructuredValue(
     def withStringValue(__v: _root_.scala.Predef.String): StructuredValue = copy(kind = tensorboard.struct.StructuredValue.Kind.StringValue(__v))
     def getBoolValue: _root_.scala.Boolean = kind.boolValue.getOrElse(false)
     def withBoolValue(__v: _root_.scala.Boolean): StructuredValue = copy(kind = tensorboard.struct.StructuredValue.Kind.BoolValue(__v))
-    def getTensorShapeValue: TensorShapeProto = kind.tensorShapeValue.getOrElse(tensor_shape.TensorShapeProto.defaultInstance)
-    def withTensorShapeValue(__v: TensorShapeProto): StructuredValue = copy(kind = tensorboard.struct.StructuredValue.Kind.TensorShapeValue(__v))
-    def getTensorDtypeValue: DataType = kind.tensorDtypeValue.getOrElse(types.DataType.DT_INVALID)
-    def withTensorDtypeValue(__v: DataType): StructuredValue = copy(kind = tensorboard.struct.StructuredValue.Kind.TensorDtypeValue(__v))
+    def getTensorShapeValue: org.tensorflow.framework.tensor_shape.TensorShapeProto = kind.tensorShapeValue.getOrElse(org.tensorflow.framework.tensor_shape.TensorShapeProto.defaultInstance)
+    def withTensorShapeValue(__v: org.tensorflow.framework.tensor_shape.TensorShapeProto): StructuredValue = copy(kind = tensorboard.struct.StructuredValue.Kind.TensorShapeValue(__v))
+    def getTensorDtypeValue: org.tensorflow.framework.types.DataType = kind.tensorDtypeValue.getOrElse(org.tensorflow.framework.types.DataType.DT_INVALID)
+    def withTensorDtypeValue(__v: org.tensorflow.framework.types.DataType): StructuredValue = copy(kind = tensorboard.struct.StructuredValue.Kind.TensorDtypeValue(__v))
     def getTensorSpecValue: tensorboard.struct.TensorSpecProto = kind.tensorSpecValue.getOrElse(tensorboard.struct.TensorSpecProto.defaultInstance)
     def withTensorSpecValue(__v: tensorboard.struct.TensorSpecProto): StructuredValue = copy(kind = tensorboard.struct.StructuredValue.Kind.TensorSpecValue(__v))
     def getTypeSpecValue: tensorboard.struct.TypeSpecProto = kind.typeSpecValue.getOrElse(tensorboard.struct.TypeSpecProto.defaultInstance)
@@ -235,10 +230,10 @@ final case class StructuredValue(
     def withDictValue(__v: tensorboard.struct.DictValue): StructuredValue = copy(kind = tensorboard.struct.StructuredValue.Kind.DictValue(__v))
     def getNamedTupleValue: tensorboard.struct.NamedTupleValue = kind.namedTupleValue.getOrElse(tensorboard.struct.NamedTupleValue.defaultInstance)
     def withNamedTupleValue(__v: tensorboard.struct.NamedTupleValue): StructuredValue = copy(kind = tensorboard.struct.StructuredValue.Kind.NamedTupleValue(__v))
-    def getTensorValue: TensorProto = kind.tensorValue.getOrElse(tensor.TensorProto.defaultInstance)
-    def withTensorValue(__v: TensorProto): StructuredValue = copy(kind = tensorboard.struct.StructuredValue.Kind.TensorValue(__v))
-    def getNumpyValue: TensorProto = kind.numpyValue.getOrElse(tensor.TensorProto.defaultInstance)
-    def withNumpyValue(__v: TensorProto): StructuredValue = copy(kind = tensorboard.struct.StructuredValue.Kind.NumpyValue(__v))
+    def getTensorValue: org.tensorflow.framework.tensor.TensorProto = kind.tensorValue.getOrElse(org.tensorflow.framework.tensor.TensorProto.defaultInstance)
+    def withTensorValue(__v: org.tensorflow.framework.tensor.TensorProto): StructuredValue = copy(kind = tensorboard.struct.StructuredValue.Kind.TensorValue(__v))
+    def getNumpyValue: org.tensorflow.framework.tensor.TensorProto = kind.numpyValue.getOrElse(org.tensorflow.framework.tensor.TensorProto.defaultInstance)
+    def withNumpyValue(__v: org.tensorflow.framework.tensor.TensorProto): StructuredValue = copy(kind = tensorboard.struct.StructuredValue.Kind.NumpyValue(__v))
     def clearKind: StructuredValue = copy(kind = tensorboard.struct.StructuredValue.Kind.Empty)
     def withKind(__v: tensorboard.struct.StructuredValue.Kind): StructuredValue = copy(kind = __v)
     def withUnknownFields(__v: _root_.scalapb.UnknownFieldSet) = copy(unknownFields = __v)
@@ -310,9 +305,9 @@ object StructuredValue extends scalapb.GeneratedMessageCompanion[tensorboard.str
         case 112 =>
           __kind = tensorboard.struct.StructuredValue.Kind.BoolValue(_input__.readBool())
         case 250 =>
-          __kind = tensorboard.struct.StructuredValue.Kind.TensorShapeValue(__kind.tensorShapeValue.fold(_root_.scalapb.LiteParser.readMessage[TensorShapeProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
+          __kind = tensorboard.struct.StructuredValue.Kind.TensorShapeValue(__kind.tensorShapeValue.fold(_root_.scalapb.LiteParser.readMessage[org.tensorflow.framework.tensor_shape.TensorShapeProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
         case 256 =>
-          __kind = tensorboard.struct.StructuredValue.Kind.TensorDtypeValue(DataType.fromValue(_input__.readEnum()))
+          __kind = tensorboard.struct.StructuredValue.Kind.TensorDtypeValue(org.tensorflow.framework.types.DataType.fromValue(_input__.readEnum()))
         case 266 =>
           __kind = tensorboard.struct.StructuredValue.Kind.TensorSpecValue(__kind.tensorSpecValue.fold(_root_.scalapb.LiteParser.readMessage[tensorboard.struct.TensorSpecProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
         case 274 =>
@@ -328,9 +323,9 @@ object StructuredValue extends scalapb.GeneratedMessageCompanion[tensorboard.str
         case 434 =>
           __kind = tensorboard.struct.StructuredValue.Kind.NamedTupleValue(__kind.namedTupleValue.fold(_root_.scalapb.LiteParser.readMessage[tensorboard.struct.NamedTupleValue](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
         case 442 =>
-          __kind = tensorboard.struct.StructuredValue.Kind.TensorValue(__kind.tensorValue.fold(_root_.scalapb.LiteParser.readMessage[TensorProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
+          __kind = tensorboard.struct.StructuredValue.Kind.TensorValue(__kind.tensorValue.fold(_root_.scalapb.LiteParser.readMessage[org.tensorflow.framework.tensor.TensorProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
         case 450 =>
-          __kind = tensorboard.struct.StructuredValue.Kind.NumpyValue(__kind.numpyValue.fold(_root_.scalapb.LiteParser.readMessage[TensorProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
+          __kind = tensorboard.struct.StructuredValue.Kind.NumpyValue(__kind.numpyValue.fold(_root_.scalapb.LiteParser.readMessage[org.tensorflow.framework.tensor.TensorProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
         case tag =>
           if (_unknownFields__ == null) {
             _unknownFields__ = new _root_.scalapb.UnknownFieldSet.Builder()
@@ -352,8 +347,8 @@ object StructuredValue extends scalapb.GeneratedMessageCompanion[tensorboard.str
             .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(12).get).flatMap(_.as[_root_.scala.Option[_root_.scala.Long]]).map(tensorboard.struct.StructuredValue.Kind.Int64Value(_)))
             .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(13).get).flatMap(_.as[_root_.scala.Option[_root_.scala.Predef.String]]).map(tensorboard.struct.StructuredValue.Kind.StringValue(_)))
             .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(14).get).flatMap(_.as[_root_.scala.Option[_root_.scala.Boolean]]).map(tensorboard.struct.StructuredValue.Kind.BoolValue(_)))
-            .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(31).get).flatMap(_.as[_root_.scala.Option[TensorShapeProto]]).map(tensorboard.struct.StructuredValue.Kind.TensorShapeValue(_)))
-            .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(32).get).flatMap(_.as[_root_.scala.Option[_root_.scalapb.descriptors.EnumValueDescriptor]]).map(__e => tensorboard.struct.StructuredValue.Kind.TensorDtypeValue(types.DataType.fromValue(__e.number))))
+            .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(31).get).flatMap(_.as[_root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto]]).map(tensorboard.struct.StructuredValue.Kind.TensorShapeValue(_)))
+            .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(32).get).flatMap(_.as[_root_.scala.Option[_root_.scalapb.descriptors.EnumValueDescriptor]]).map(__e => tensorboard.struct.StructuredValue.Kind.TensorDtypeValue(org.tensorflow.framework.types.DataType.fromValue(__e.number))))
             .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(33).get).flatMap(_.as[_root_.scala.Option[tensorboard.struct.TensorSpecProto]]).map(tensorboard.struct.StructuredValue.Kind.TensorSpecValue(_)))
             .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(34).get).flatMap(_.as[_root_.scala.Option[tensorboard.struct.TypeSpecProto]]).map(tensorboard.struct.StructuredValue.Kind.TypeSpecValue(_)))
             .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(35).get).flatMap(_.as[_root_.scala.Option[tensorboard.struct.BoundedTensorSpecProto]]).map(tensorboard.struct.StructuredValue.Kind.BoundedTensorSpecValue(_)))
@@ -361,19 +356,19 @@ object StructuredValue extends scalapb.GeneratedMessageCompanion[tensorboard.str
             .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(52).get).flatMap(_.as[_root_.scala.Option[tensorboard.struct.TupleValue]]).map(tensorboard.struct.StructuredValue.Kind.TupleValue(_)))
             .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(53).get).flatMap(_.as[_root_.scala.Option[tensorboard.struct.DictValue]]).map(tensorboard.struct.StructuredValue.Kind.DictValue(_)))
             .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(54).get).flatMap(_.as[_root_.scala.Option[tensorboard.struct.NamedTupleValue]]).map(tensorboard.struct.StructuredValue.Kind.NamedTupleValue(_)))
-            .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(55).get).flatMap(_.as[_root_.scala.Option[TensorProto]]).map(tensorboard.struct.StructuredValue.Kind.TensorValue(_)))
-            .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(56).get).flatMap(_.as[_root_.scala.Option[TensorProto]]).map(tensorboard.struct.StructuredValue.Kind.NumpyValue(_)))
+            .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(55).get).flatMap(_.as[_root_.scala.Option[org.tensorflow.framework.tensor.TensorProto]]).map(tensorboard.struct.StructuredValue.Kind.TensorValue(_)))
+            .orElse[tensorboard.struct.StructuredValue.Kind](__fieldsMap.get(scalaDescriptor.findFieldByNumber(56).get).flatMap(_.as[_root_.scala.Option[org.tensorflow.framework.tensor.TensorProto]]).map(tensorboard.struct.StructuredValue.Kind.NumpyValue(_)))
             .getOrElse(tensorboard.struct.StructuredValue.Kind.Empty)
       )
     case _ => throw new RuntimeException("Expected PMessage")
   }
   def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.struct.StructProto.javaDescriptor.getMessageTypes().get(0)
   def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.struct.StructProto.scalaDescriptor.messages(0)
-  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-    var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+    var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
     (__number: @_root_.scala.unchecked) match {
       case 1 => __out = tensorboard.struct.NoneValue
-      case 31 => __out = tensor_shape.TensorShapeProto
+      case 31 => __out = org.tensorflow.framework.tensor_shape.TensorShapeProto
       case 33 => __out = tensorboard.struct.TensorSpecProto
       case 34 => __out = tensorboard.struct.TypeSpecProto
       case 35 => __out = tensorboard.struct.BoundedTensorSpecProto
@@ -381,15 +376,15 @@ object StructuredValue extends scalapb.GeneratedMessageCompanion[tensorboard.str
       case 52 => __out = tensorboard.struct.TupleValue
       case 53 => __out = tensorboard.struct.DictValue
       case 54 => __out = tensorboard.struct.NamedTupleValue
-      case 55 => __out = tensor.TensorProto
-      case 56 => __out = tensor.TensorProto
+      case 55 => __out = org.tensorflow.framework.tensor.TensorProto
+      case 56 => __out = org.tensorflow.framework.tensor.TensorProto
     }
     __out
   }
-  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = {
+  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= {
     (__fieldNumber: @_root_.scala.unchecked) match {
-      case 32 => types.DataType
+      case 32 => org.tensorflow.framework.types.DataType
     }
   }
   lazy val defaultInstance = tensorboard.struct.StructuredValue(
@@ -419,8 +414,8 @@ object StructuredValue extends scalapb.GeneratedMessageCompanion[tensorboard.str
     def int64Value: _root_.scala.Option[_root_.scala.Long] = _root_.scala.None
     def stringValue: _root_.scala.Option[_root_.scala.Predef.String] = _root_.scala.None
     def boolValue: _root_.scala.Option[_root_.scala.Boolean] = _root_.scala.None
-    def tensorShapeValue: _root_.scala.Option[TensorShapeProto] = _root_.scala.None
-    def tensorDtypeValue: _root_.scala.Option[DataType] = _root_.scala.None
+    def tensorShapeValue: _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto] = _root_.scala.None
+    def tensorDtypeValue: _root_.scala.Option[org.tensorflow.framework.types.DataType] = _root_.scala.None
     def tensorSpecValue: _root_.scala.Option[tensorboard.struct.TensorSpecProto] = _root_.scala.None
     def typeSpecValue: _root_.scala.Option[tensorboard.struct.TypeSpecProto] = _root_.scala.None
     def boundedTensorSpecValue: _root_.scala.Option[tensorboard.struct.BoundedTensorSpecProto] = _root_.scala.None
@@ -428,8 +423,8 @@ object StructuredValue extends scalapb.GeneratedMessageCompanion[tensorboard.str
     def tupleValue: _root_.scala.Option[tensorboard.struct.TupleValue] = _root_.scala.None
     def dictValue: _root_.scala.Option[tensorboard.struct.DictValue] = _root_.scala.None
     def namedTupleValue: _root_.scala.Option[tensorboard.struct.NamedTupleValue] = _root_.scala.None
-    def tensorValue: _root_.scala.Option[TensorProto] = _root_.scala.None
-    def numpyValue: _root_.scala.Option[TensorProto] = _root_.scala.None
+    def tensorValue: _root_.scala.Option[org.tensorflow.framework.tensor.TensorProto] = _root_.scala.None
+    def numpyValue: _root_.scala.Option[org.tensorflow.framework.tensor.TensorProto] = _root_.scala.None
   }
   object Kind {
     @SerialVersionUID(0L)
@@ -477,17 +472,17 @@ object StructuredValue extends scalapb.GeneratedMessageCompanion[tensorboard.str
       override def number: _root_.scala.Int = 14
     }
     @SerialVersionUID(0L)
-    final case class TensorShapeValue(value: TensorShapeProto) extends tensorboard.struct.StructuredValue.Kind {
-      type ValueType = TensorShapeProto
+    final case class TensorShapeValue(value: org.tensorflow.framework.tensor_shape.TensorShapeProto) extends tensorboard.struct.StructuredValue.Kind {
+      type ValueType = org.tensorflow.framework.tensor_shape.TensorShapeProto
       override def isTensorShapeValue: _root_.scala.Boolean = true
-      override def tensorShapeValue: _root_.scala.Option[TensorShapeProto] = Some(value)
+      override def tensorShapeValue: _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto] = Some(value)
       override def number: _root_.scala.Int = 31
     }
     @SerialVersionUID(0L)
-    final case class TensorDtypeValue(value: DataType) extends tensorboard.struct.StructuredValue.Kind {
-      type ValueType = DataType
+    final case class TensorDtypeValue(value: org.tensorflow.framework.types.DataType) extends tensorboard.struct.StructuredValue.Kind {
+      type ValueType = org.tensorflow.framework.types.DataType
       override def isTensorDtypeValue: _root_.scala.Boolean = true
-      override def tensorDtypeValue: _root_.scala.Option[DataType] = Some(value)
+      override def tensorDtypeValue: _root_.scala.Option[org.tensorflow.framework.types.DataType] = Some(value)
       override def number: _root_.scala.Int = 32
     }
     @SerialVersionUID(0L)
@@ -540,17 +535,17 @@ object StructuredValue extends scalapb.GeneratedMessageCompanion[tensorboard.str
       override def number: _root_.scala.Int = 54
     }
     @SerialVersionUID(0L)
-    final case class TensorValue(value: TensorProto) extends tensorboard.struct.StructuredValue.Kind {
-      type ValueType = TensorProto
+    final case class TensorValue(value: org.tensorflow.framework.tensor.TensorProto) extends tensorboard.struct.StructuredValue.Kind {
+      type ValueType = org.tensorflow.framework.tensor.TensorProto
       override def isTensorValue: _root_.scala.Boolean = true
-      override def tensorValue: _root_.scala.Option[TensorProto] = Some(value)
+      override def tensorValue: _root_.scala.Option[org.tensorflow.framework.tensor.TensorProto] = Some(value)
       override def number: _root_.scala.Int = 55
     }
     @SerialVersionUID(0L)
-    final case class NumpyValue(value: TensorProto) extends tensorboard.struct.StructuredValue.Kind {
-      type ValueType = TensorProto
+    final case class NumpyValue(value: org.tensorflow.framework.tensor.TensorProto) extends tensorboard.struct.StructuredValue.Kind {
+      type ValueType = org.tensorflow.framework.tensor.TensorProto
       override def isNumpyValue: _root_.scala.Boolean = true
-      override def numpyValue: _root_.scala.Option[TensorProto] = Some(value)
+      override def numpyValue: _root_.scala.Option[org.tensorflow.framework.tensor.TensorProto] = Some(value)
       override def number: _root_.scala.Int = 56
     }
   }
@@ -560,8 +555,8 @@ object StructuredValue extends scalapb.GeneratedMessageCompanion[tensorboard.str
     def int64Value: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Long] = field(_.getInt64Value)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.Int64Value(f_)))
     def stringValue: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field(_.getStringValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.StringValue(f_)))
     def boolValue: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Boolean] = field(_.getBoolValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.BoolValue(f_)))
-    def tensorShapeValue: _root_.scalapb.lenses.Lens[UpperPB, TensorShapeProto] = field(_.getTensorShapeValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.TensorShapeValue(f_)))
-    def tensorDtypeValue: _root_.scalapb.lenses.Lens[UpperPB, DataType] = field(_.getTensorDtypeValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.TensorDtypeValue(f_)))
+    def tensorShapeValue: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.tensor_shape.TensorShapeProto] = field(_.getTensorShapeValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.TensorShapeValue(f_)))
+    def tensorDtypeValue: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.types.DataType] = field(_.getTensorDtypeValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.TensorDtypeValue(f_)))
     def tensorSpecValue: _root_.scalapb.lenses.Lens[UpperPB, tensorboard.struct.TensorSpecProto] = field(_.getTensorSpecValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.TensorSpecValue(f_)))
     def typeSpecValue: _root_.scalapb.lenses.Lens[UpperPB, tensorboard.struct.TypeSpecProto] = field(_.getTypeSpecValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.TypeSpecValue(f_)))
     def boundedTensorSpecValue: _root_.scalapb.lenses.Lens[UpperPB, tensorboard.struct.BoundedTensorSpecProto] = field(_.getBoundedTensorSpecValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.BoundedTensorSpecValue(f_)))
@@ -569,8 +564,8 @@ object StructuredValue extends scalapb.GeneratedMessageCompanion[tensorboard.str
     def tupleValue: _root_.scalapb.lenses.Lens[UpperPB, tensorboard.struct.TupleValue] = field(_.getTupleValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.TupleValue(f_)))
     def dictValue: _root_.scalapb.lenses.Lens[UpperPB, tensorboard.struct.DictValue] = field(_.getDictValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.DictValue(f_)))
     def namedTupleValue: _root_.scalapb.lenses.Lens[UpperPB, tensorboard.struct.NamedTupleValue] = field(_.getNamedTupleValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.NamedTupleValue(f_)))
-    def tensorValue: _root_.scalapb.lenses.Lens[UpperPB, TensorProto] = field(_.getTensorValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.TensorValue(f_)))
-    def numpyValue: _root_.scalapb.lenses.Lens[UpperPB, TensorProto] = field(_.getNumpyValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.NumpyValue(f_)))
+    def tensorValue: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.tensor.TensorProto] = field(_.getTensorValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.TensorValue(f_)))
+    def numpyValue: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.tensor.TensorProto] = field(_.getNumpyValue)((c_, f_) => c_.copy(kind = tensorboard.struct.StructuredValue.Kind.NumpyValue(f_)))
     def kind: _root_.scalapb.lenses.Lens[UpperPB, tensorboard.struct.StructuredValue.Kind] = field(_.kind)((c_, f_) => c_.copy(kind = f_))
   }
   final val NONE_VALUE_FIELD_NUMBER = 1

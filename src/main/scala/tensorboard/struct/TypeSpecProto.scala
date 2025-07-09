@@ -183,15 +183,15 @@ object TypeSpecProto extends scalapb.GeneratedMessageCompanion[tensorboard.struc
   }
   def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.struct.StructProto.javaDescriptor.getMessageTypes().get(9)
   def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.struct.StructProto.scalaDescriptor.messages(9)
-  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-    var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+    var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
     (__number: @_root_.scala.unchecked) match {
       case 2 => __out = tensorboard.struct.StructuredValue
     }
     __out
   }
-  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = {
+  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= {
     (__fieldNumber: @_root_.scala.unchecked) match {
       case 1 => tensorboard.struct.TypeSpecProto.TypeSpecClass
     }

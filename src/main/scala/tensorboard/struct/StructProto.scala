@@ -9,8 +9,8 @@ object StructProto extends _root_.scalapb.GeneratedFileObject {
     org.tensorflow.framework.tensor_shape.TensorShapeProtoCompanion,
     org.tensorflow.framework.types.TypesProto
   )
-  lazy val messagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] =
-    Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]](
+  lazy val messagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] =
+    Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]](
       tensorboard.struct.StructuredValue,
       tensorboard.struct.NoneValue,
       tensorboard.struct.ListValue,

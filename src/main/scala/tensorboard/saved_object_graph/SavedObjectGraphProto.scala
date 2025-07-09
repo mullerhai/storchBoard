@@ -13,8 +13,8 @@ object SavedObjectGraphProto extends _root_.scalapb.GeneratedFileObject {
     tensorboard.struct.StructProto,
     tensorboard.trackable_object_graph.TrackableObjectGraphProto
   )
-  lazy val messagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] =
-    Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]](
+  lazy val messagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] =
+    Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]](
       tensorboard.saved_object_graph.SavedObjectGraph,
       tensorboard.saved_object_graph.SavedObject,
       tensorboard.saved_object_graph.SavedUserObject,

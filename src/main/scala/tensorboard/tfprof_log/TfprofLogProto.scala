@@ -8,8 +8,8 @@ object TfprofLogProto extends _root_.scalapb.GeneratedFileObject {
     org.tensorflow.framework.attr_value.AttrValueProto,
     org.tensorflow.framework.step_stats.StepStatsProto
   )
-  lazy val messagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] =
-    Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]](
+  lazy val messagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] =
+    Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]](
       tensorboard.tfprof_log.CodeDef,
       tensorboard.tfprof_log.OpLogEntry,
       tensorboard.tfprof_log.OpLogProto,

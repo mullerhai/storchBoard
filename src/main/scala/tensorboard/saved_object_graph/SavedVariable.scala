@@ -3,11 +3,6 @@
 
 package tensorboard.saved_object_graph
 
-import tensorflow.framework.tensor_shape.TensorShapeProto
-import tensorflow.framework.types.DataType
-import tensorflow.framework.variable.{VariableAggregation, VariableSynchronization}
-import tensorflow.framework.{tensor_shape, types, variable}
-
 /** Represents a Variable that is initialized by loading the contents from the
   * checkpoint.
   *
@@ -21,15 +16,15 @@ import tensorflow.framework.{tensor_shape, types, variable}
   */
 @SerialVersionUID(0L)
 final case class SavedVariable(
-                                dtype: DataType = DataType.DT_INVALID,
-                                shape: _root_.scala.Option[TensorShapeProto] = _root_.scala.None,
-                                trainable: _root_.scala.Boolean = false,
-                                synchronization: VariableSynchronization = variable.VariableSynchronization.VARIABLE_SYNCHRONIZATION_AUTO,
-                                aggregation: VariableAggregation = variable.VariableAggregation.VARIABLE_AGGREGATION_NONE,
-                                name: _root_.scala.Predef.String = "",
-                                device: _root_.scala.Predef.String = "",
-                                experimentalDistributedVariableComponents: _root_.scala.Seq[tensorboard.saved_object_graph.SavedVariable] = _root_.scala.Seq.empty,
-                                unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
+    dtype: org.tensorflow.framework.types.DataType = org.tensorflow.framework.types.DataType.DT_INVALID,
+    shape: _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto] = _root_.scala.None,
+    trainable: _root_.scala.Boolean = false,
+    synchronization: org.tensorflow.framework.variable.VariableSynchronization = org.tensorflow.framework.variable.VariableSynchronization.VARIABLE_SYNCHRONIZATION_AUTO,
+    aggregation: org.tensorflow.framework.variable.VariableAggregation = org.tensorflow.framework.variable.VariableAggregation.VARIABLE_AGGREGATION_NONE,
+    name: _root_.scala.Predef.String = "",
+    device: _root_.scala.Predef.String = "",
+    experimentalDistributedVariableComponents: _root_.scala.Seq[tensorboard.saved_object_graph.SavedVariable] = _root_.scala.Seq.empty,
+    unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
     ) extends scalapb.GeneratedMessage with scalapb.lenses.Updatable[SavedVariable] {
     @transient
     private[this] var __serializedSizeMemoized: _root_.scala.Int = 0
@@ -148,13 +143,13 @@ final case class SavedVariable(
       };
       unknownFields.writeTo(_output__)
     }
-    def withDtype(__v: DataType): SavedVariable = copy(dtype = __v)
-    def getShape: TensorShapeProto = shape.getOrElse(tensor_shape.TensorShapeProto.defaultInstance)
+    def withDtype(__v: org.tensorflow.framework.types.DataType): SavedVariable = copy(dtype = __v)
+    def getShape: org.tensorflow.framework.tensor_shape.TensorShapeProto = shape.getOrElse(org.tensorflow.framework.tensor_shape.TensorShapeProto.defaultInstance)
     def clearShape: SavedVariable = copy(shape = _root_.scala.None)
-    def withShape(__v: TensorShapeProto): SavedVariable = copy(shape = Option(__v))
+    def withShape(__v: org.tensorflow.framework.tensor_shape.TensorShapeProto): SavedVariable = copy(shape = Option(__v))
     def withTrainable(__v: _root_.scala.Boolean): SavedVariable = copy(trainable = __v)
-    def withSynchronization(__v: VariableSynchronization): SavedVariable = copy(synchronization = __v)
-    def withAggregation(__v: VariableAggregation): SavedVariable = copy(aggregation = __v)
+    def withSynchronization(__v: org.tensorflow.framework.variable.VariableSynchronization): SavedVariable = copy(synchronization = __v)
+    def withAggregation(__v: org.tensorflow.framework.variable.VariableAggregation): SavedVariable = copy(aggregation = __v)
     def withName(__v: _root_.scala.Predef.String): SavedVariable = copy(name = __v)
     def withDevice(__v: _root_.scala.Predef.String): SavedVariable = copy(device = __v)
     def clearExperimentalDistributedVariableComponents = copy(experimentalDistributedVariableComponents = _root_.scala.Seq.empty)
@@ -214,11 +209,11 @@ final case class SavedVariable(
 object SavedVariable extends scalapb.GeneratedMessageCompanion[tensorboard.saved_object_graph.SavedVariable] {
   implicit def messageCompanion: scalapb.GeneratedMessageCompanion[tensorboard.saved_object_graph.SavedVariable] = this
   def parseFrom(`_input__`: _root_.com.google.protobuf.CodedInputStream): tensorboard.saved_object_graph.SavedVariable = {
-    var __dtype: DataType = types.DataType.DT_INVALID
-    var __shape: _root_.scala.Option[TensorShapeProto] = _root_.scala.None
+    var __dtype: org.tensorflow.framework.types.DataType = org.tensorflow.framework.types.DataType.DT_INVALID
+    var __shape: _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto] = _root_.scala.None
     var __trainable: _root_.scala.Boolean = false
-    var __synchronization: VariableSynchronization = variable.VariableSynchronization.VARIABLE_SYNCHRONIZATION_AUTO
-    var __aggregation: VariableAggregation = variable.VariableAggregation.VARIABLE_AGGREGATION_NONE
+    var __synchronization: org.tensorflow.framework.variable.VariableSynchronization = org.tensorflow.framework.variable.VariableSynchronization.VARIABLE_SYNCHRONIZATION_AUTO
+    var __aggregation: org.tensorflow.framework.variable.VariableAggregation = org.tensorflow.framework.variable.VariableAggregation.VARIABLE_AGGREGATION_NONE
     var __name: _root_.scala.Predef.String = ""
     var __device: _root_.scala.Predef.String = ""
     val __experimentalDistributedVariableComponents: _root_.scala.collection.immutable.VectorBuilder[tensorboard.saved_object_graph.SavedVariable] = new _root_.scala.collection.immutable.VectorBuilder[tensorboard.saved_object_graph.SavedVariable]
@@ -229,15 +224,15 @@ object SavedVariable extends scalapb.GeneratedMessageCompanion[tensorboard.saved
       _tag__ match {
         case 0 => _done__ = true
         case 8 =>
-          __dtype = types.DataType.fromValue(_input__.readEnum())
+          __dtype = org.tensorflow.framework.types.DataType.fromValue(_input__.readEnum())
         case 18 =>
-          __shape = _root_.scala.Option(__shape.fold(_root_.scalapb.LiteParser.readMessage[TensorShapeProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
+          __shape = _root_.scala.Option(__shape.fold(_root_.scalapb.LiteParser.readMessage[org.tensorflow.framework.tensor_shape.TensorShapeProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
         case 24 =>
           __trainable = _input__.readBool()
         case 32 =>
-          __synchronization = variable.VariableSynchronization.fromValue(_input__.readEnum())
+          __synchronization = org.tensorflow.framework.variable.VariableSynchronization.fromValue(_input__.readEnum())
         case 40 =>
-          __aggregation = variable.VariableAggregation.fromValue(_input__.readEnum())
+          __aggregation = org.tensorflow.framework.variable.VariableAggregation.fromValue(_input__.readEnum())
         case 50 =>
           __name = _input__.readStringRequireUtf8()
         case 58 =>
@@ -267,11 +262,11 @@ object SavedVariable extends scalapb.GeneratedMessageCompanion[tensorboard.saved
     case _root_.scalapb.descriptors.PMessage(__fieldsMap) =>
       _root_.scala.Predef.require(__fieldsMap.keys.forall(_.containingMessage eq scalaDescriptor), "FieldDescriptor does not match message type.")
       tensorboard.saved_object_graph.SavedVariable(
-        dtype = types.DataType.fromValue(__fieldsMap.get(scalaDescriptor.findFieldByNumber(1).get).map(_.as[_root_.scalapb.descriptors.EnumValueDescriptor]).getOrElse(types.DataType.DT_INVALID.scalaValueDescriptor).number),
-        shape = __fieldsMap.get(scalaDescriptor.findFieldByNumber(2).get).flatMap(_.as[_root_.scala.Option[TensorShapeProto]]),
+        dtype = org.tensorflow.framework.types.DataType.fromValue(__fieldsMap.get(scalaDescriptor.findFieldByNumber(1).get).map(_.as[_root_.scalapb.descriptors.EnumValueDescriptor]).getOrElse(org.tensorflow.framework.types.DataType.DT_INVALID.scalaValueDescriptor).number),
+        shape = __fieldsMap.get(scalaDescriptor.findFieldByNumber(2).get).flatMap(_.as[_root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto]]),
         trainable = __fieldsMap.get(scalaDescriptor.findFieldByNumber(3).get).map(_.as[_root_.scala.Boolean]).getOrElse(false),
-        synchronization = variable.VariableSynchronization.fromValue(__fieldsMap.get(scalaDescriptor.findFieldByNumber(4).get).map(_.as[_root_.scalapb.descriptors.EnumValueDescriptor]).getOrElse(variable.VariableSynchronization.VARIABLE_SYNCHRONIZATION_AUTO.scalaValueDescriptor).number),
-        aggregation = variable.VariableAggregation.fromValue(__fieldsMap.get(scalaDescriptor.findFieldByNumber(5).get).map(_.as[_root_.scalapb.descriptors.EnumValueDescriptor]).getOrElse(variable.VariableAggregation.VARIABLE_AGGREGATION_NONE.scalaValueDescriptor).number),
+        synchronization = org.tensorflow.framework.variable.VariableSynchronization.fromValue(__fieldsMap.get(scalaDescriptor.findFieldByNumber(4).get).map(_.as[_root_.scalapb.descriptors.EnumValueDescriptor]).getOrElse(org.tensorflow.framework.variable.VariableSynchronization.VARIABLE_SYNCHRONIZATION_AUTO.scalaValueDescriptor).number),
+        aggregation = org.tensorflow.framework.variable.VariableAggregation.fromValue(__fieldsMap.get(scalaDescriptor.findFieldByNumber(5).get).map(_.as[_root_.scalapb.descriptors.EnumValueDescriptor]).getOrElse(org.tensorflow.framework.variable.VariableAggregation.VARIABLE_AGGREGATION_NONE.scalaValueDescriptor).number),
         name = __fieldsMap.get(scalaDescriptor.findFieldByNumber(6).get).map(_.as[_root_.scala.Predef.String]).getOrElse(""),
         device = __fieldsMap.get(scalaDescriptor.findFieldByNumber(7).get).map(_.as[_root_.scala.Predef.String]).getOrElse(""),
         experimentalDistributedVariableComponents = __fieldsMap.get(scalaDescriptor.findFieldByNumber(8).get).map(_.as[_root_.scala.Seq[tensorboard.saved_object_graph.SavedVariable]]).getOrElse(_root_.scala.Seq.empty)
@@ -280,39 +275,39 @@ object SavedVariable extends scalapb.GeneratedMessageCompanion[tensorboard.saved
   }
   def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.saved_object_graph.SavedObjectGraphProto.javaDescriptor.getMessageTypes().get(9)
   def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.saved_object_graph.SavedObjectGraphProto.scalaDescriptor.messages(9)
-  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-    var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+    var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
     (__number: @_root_.scala.unchecked) match {
-      case 2 => __out = tensor_shape.TensorShapeProto
+      case 2 => __out = org.tensorflow.framework.tensor_shape.TensorShapeProto
       case 8 => __out = tensorboard.saved_object_graph.SavedVariable
     }
     __out
   }
-  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = {
+  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= {
     (__fieldNumber: @_root_.scala.unchecked) match {
-      case 1 => types.DataType
-      case 4 => variable.VariableSynchronization
-      case 5 => variable.VariableAggregation
+      case 1 => org.tensorflow.framework.types.DataType
+      case 4 => org.tensorflow.framework.variable.VariableSynchronization
+      case 5 => org.tensorflow.framework.variable.VariableAggregation
     }
   }
   lazy val defaultInstance = tensorboard.saved_object_graph.SavedVariable(
-    dtype = types.DataType.DT_INVALID,
+    dtype = org.tensorflow.framework.types.DataType.DT_INVALID,
     shape = _root_.scala.None,
     trainable = false,
-    synchronization = variable.VariableSynchronization.VARIABLE_SYNCHRONIZATION_AUTO,
-    aggregation = variable.VariableAggregation.VARIABLE_AGGREGATION_NONE,
+    synchronization = org.tensorflow.framework.variable.VariableSynchronization.VARIABLE_SYNCHRONIZATION_AUTO,
+    aggregation = org.tensorflow.framework.variable.VariableAggregation.VARIABLE_AGGREGATION_NONE,
     name = "",
     device = "",
     experimentalDistributedVariableComponents = _root_.scala.Seq.empty
   )
   implicit class SavedVariableLens[UpperPB](_l: _root_.scalapb.lenses.Lens[UpperPB, tensorboard.saved_object_graph.SavedVariable]) extends _root_.scalapb.lenses.ObjectLens[UpperPB, tensorboard.saved_object_graph.SavedVariable](_l) {
-    def dtype: _root_.scalapb.lenses.Lens[UpperPB, DataType] = field(_.dtype)((c_, f_) => c_.copy(dtype = f_))
-    def shape: _root_.scalapb.lenses.Lens[UpperPB, TensorShapeProto] = field(_.getShape)((c_, f_) => c_.copy(shape = _root_.scala.Option(f_)))
-    def optionalShape: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[TensorShapeProto]] = field(_.shape)((c_, f_) => c_.copy(shape = f_))
+    def dtype: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.types.DataType] = field(_.dtype)((c_, f_) => c_.copy(dtype = f_))
+    def shape: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.tensor_shape.TensorShapeProto] = field(_.getShape)((c_, f_) => c_.copy(shape = _root_.scala.Option(f_)))
+    def optionalShape: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto]] = field(_.shape)((c_, f_) => c_.copy(shape = f_))
     def trainable: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Boolean] = field(_.trainable)((c_, f_) => c_.copy(trainable = f_))
-    def synchronization: _root_.scalapb.lenses.Lens[UpperPB, VariableSynchronization] = field(_.synchronization)((c_, f_) => c_.copy(synchronization = f_))
-    def aggregation: _root_.scalapb.lenses.Lens[UpperPB, VariableAggregation] = field(_.aggregation)((c_, f_) => c_.copy(aggregation = f_))
+    def synchronization: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.variable.VariableSynchronization] = field(_.synchronization)((c_, f_) => c_.copy(synchronization = f_))
+    def aggregation: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.variable.VariableAggregation] = field(_.aggregation)((c_, f_) => c_.copy(aggregation = f_))
     def name: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field(_.name)((c_, f_) => c_.copy(name = f_))
     def device: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field(_.device)((c_, f_) => c_.copy(device = f_))
     def experimentalDistributedVariableComponents: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Seq[tensorboard.saved_object_graph.SavedVariable]] = field(_.experimentalDistributedVariableComponents)((c_, f_) => c_.copy(experimentalDistributedVariableComponents = f_))
@@ -326,14 +321,14 @@ object SavedVariable extends scalapb.GeneratedMessageCompanion[tensorboard.saved
   final val DEVICE_FIELD_NUMBER = 7
   final val EXPERIMENTAL_DISTRIBUTED_VARIABLE_COMPONENTS_FIELD_NUMBER = 8
   def of(
-          dtype: DataType,
-          shape: _root_.scala.Option[TensorShapeProto],
-          trainable: _root_.scala.Boolean,
-          synchronization: VariableSynchronization,
-          aggregation: VariableAggregation,
-          name: _root_.scala.Predef.String,
-          device: _root_.scala.Predef.String,
-          experimentalDistributedVariableComponents: _root_.scala.Seq[tensorboard.saved_object_graph.SavedVariable]
+    dtype: org.tensorflow.framework.types.DataType,
+    shape: _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto],
+    trainable: _root_.scala.Boolean,
+    synchronization: org.tensorflow.framework.variable.VariableSynchronization,
+    aggregation: org.tensorflow.framework.variable.VariableAggregation,
+    name: _root_.scala.Predef.String,
+    device: _root_.scala.Predef.String,
+    experimentalDistributedVariableComponents: _root_.scala.Seq[tensorboard.saved_object_graph.SavedVariable]
   ): _root_.tensorboard.saved_object_graph.SavedVariable = _root_.tensorboard.saved_object_graph.SavedVariable(
     dtype,
     shape,

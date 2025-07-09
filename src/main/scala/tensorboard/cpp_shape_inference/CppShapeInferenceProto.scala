@@ -9,8 +9,8 @@ object CppShapeInferenceProto extends _root_.scalapb.GeneratedFileObject {
     org.tensorflow.framework.tensor_shape.TensorShapeProtoCompanion,
     org.tensorflow.framework.types.TypesProto
   )
-  lazy val messagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] =
-    Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]](
+  lazy val messagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] =
+    Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]](
       tensorboard.cpp_shape_inference.CppShapeInferenceResult,
       tensorboard.cpp_shape_inference.CppShapeInferenceInputsNeeded
     )

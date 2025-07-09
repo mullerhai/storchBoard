@@ -3,21 +3,16 @@
 
 package tensorboard.struct
 
-import tensorflow.framework.tensor.TensorProto
-import tensorflow.framework.tensor_shape.TensorShapeProto
-import tensorflow.framework.types.DataType
-import tensorflow.framework.{tensor, tensor_shape, types}
-
 /** A protobuf to represent tf.BoundedTensorSpec.
   */
 @SerialVersionUID(0L)
 final case class BoundedTensorSpecProto(
-                                         name: _root_.scala.Predef.String = "",
-                                         shape: _root_.scala.Option[TensorShapeProto] = _root_.scala.None,
-                                         dtype: DataType = DataType.DT_INVALID,
-                                         minimum: _root_.scala.Option[TensorProto] = _root_.scala.None,
-                                         maximum: _root_.scala.Option[TensorProto] = _root_.scala.None,
-                                         unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
+    name: _root_.scala.Predef.String = "",
+    shape: _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto] = _root_.scala.None,
+    dtype: org.tensorflow.framework.types.DataType = org.tensorflow.framework.types.DataType.DT_INVALID,
+    minimum: _root_.scala.Option[org.tensorflow.framework.tensor.TensorProto] = _root_.scala.None,
+    maximum: _root_.scala.Option[org.tensorflow.framework.tensor.TensorProto] = _root_.scala.None,
+    unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
     ) extends scalapb.GeneratedMessage with scalapb.lenses.Updatable[BoundedTensorSpecProto] {
     @transient
     private[this] var __serializedSizeMemoized: _root_.scala.Int = 0
@@ -95,16 +90,16 @@ final case class BoundedTensorSpecProto(
       unknownFields.writeTo(_output__)
     }
     def withName(__v: _root_.scala.Predef.String): BoundedTensorSpecProto = copy(name = __v)
-    def getShape: TensorShapeProto = shape.getOrElse(tensor_shape.TensorShapeProto.defaultInstance)
+    def getShape: org.tensorflow.framework.tensor_shape.TensorShapeProto = shape.getOrElse(org.tensorflow.framework.tensor_shape.TensorShapeProto.defaultInstance)
     def clearShape: BoundedTensorSpecProto = copy(shape = _root_.scala.None)
-    def withShape(__v: TensorShapeProto): BoundedTensorSpecProto = copy(shape = Option(__v))
-    def withDtype(__v: DataType): BoundedTensorSpecProto = copy(dtype = __v)
-    def getMinimum: TensorProto = minimum.getOrElse(tensor.TensorProto.defaultInstance)
+    def withShape(__v: org.tensorflow.framework.tensor_shape.TensorShapeProto): BoundedTensorSpecProto = copy(shape = Option(__v))
+    def withDtype(__v: org.tensorflow.framework.types.DataType): BoundedTensorSpecProto = copy(dtype = __v)
+    def getMinimum: org.tensorflow.framework.tensor.TensorProto = minimum.getOrElse(org.tensorflow.framework.tensor.TensorProto.defaultInstance)
     def clearMinimum: BoundedTensorSpecProto = copy(minimum = _root_.scala.None)
-    def withMinimum(__v: TensorProto): BoundedTensorSpecProto = copy(minimum = Option(__v))
-    def getMaximum: TensorProto = maximum.getOrElse(tensor.TensorProto.defaultInstance)
+    def withMinimum(__v: org.tensorflow.framework.tensor.TensorProto): BoundedTensorSpecProto = copy(minimum = Option(__v))
+    def getMaximum: org.tensorflow.framework.tensor.TensorProto = maximum.getOrElse(org.tensorflow.framework.tensor.TensorProto.defaultInstance)
     def clearMaximum: BoundedTensorSpecProto = copy(maximum = _root_.scala.None)
-    def withMaximum(__v: TensorProto): BoundedTensorSpecProto = copy(maximum = Option(__v))
+    def withMaximum(__v: org.tensorflow.framework.tensor.TensorProto): BoundedTensorSpecProto = copy(maximum = Option(__v))
     def withUnknownFields(__v: _root_.scalapb.UnknownFieldSet) = copy(unknownFields = __v)
     def discardUnknownFields = copy(unknownFields = _root_.scalapb.UnknownFieldSet.empty)
     def getFieldByNumber(__fieldNumber: _root_.scala.Int): _root_.scala.Any = {
@@ -141,10 +136,10 @@ object BoundedTensorSpecProto extends scalapb.GeneratedMessageCompanion[tensorbo
   implicit def messageCompanion: scalapb.GeneratedMessageCompanion[tensorboard.struct.BoundedTensorSpecProto] = this
   def parseFrom(`_input__`: _root_.com.google.protobuf.CodedInputStream): tensorboard.struct.BoundedTensorSpecProto = {
     var __name: _root_.scala.Predef.String = ""
-    var __shape: _root_.scala.Option[TensorShapeProto] = _root_.scala.None
-    var __dtype: DataType = types.DataType.DT_INVALID
-    var __minimum: _root_.scala.Option[TensorProto] = _root_.scala.None
-    var __maximum: _root_.scala.Option[TensorProto] = _root_.scala.None
+    var __shape: _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto] = _root_.scala.None
+    var __dtype: org.tensorflow.framework.types.DataType = org.tensorflow.framework.types.DataType.DT_INVALID
+    var __minimum: _root_.scala.Option[org.tensorflow.framework.tensor.TensorProto] = _root_.scala.None
+    var __maximum: _root_.scala.Option[org.tensorflow.framework.tensor.TensorProto] = _root_.scala.None
     var `_unknownFields__`: _root_.scalapb.UnknownFieldSet.Builder = null
     var _done__ = false
     while (!_done__) {
@@ -154,13 +149,13 @@ object BoundedTensorSpecProto extends scalapb.GeneratedMessageCompanion[tensorbo
         case 10 =>
           __name = _input__.readStringRequireUtf8()
         case 18 =>
-          __shape = _root_.scala.Option(__shape.fold(_root_.scalapb.LiteParser.readMessage[TensorShapeProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
+          __shape = _root_.scala.Option(__shape.fold(_root_.scalapb.LiteParser.readMessage[org.tensorflow.framework.tensor_shape.TensorShapeProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
         case 24 =>
-          __dtype = types.DataType.fromValue(_input__.readEnum())
+          __dtype = org.tensorflow.framework.types.DataType.fromValue(_input__.readEnum())
         case 34 =>
-          __minimum = _root_.scala.Option(__minimum.fold(_root_.scalapb.LiteParser.readMessage[TensorProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
+          __minimum = _root_.scala.Option(__minimum.fold(_root_.scalapb.LiteParser.readMessage[org.tensorflow.framework.tensor.TensorProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
         case 42 =>
-          __maximum = _root_.scala.Option(__maximum.fold(_root_.scalapb.LiteParser.readMessage[TensorProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
+          __maximum = _root_.scala.Option(__maximum.fold(_root_.scalapb.LiteParser.readMessage[org.tensorflow.framework.tensor.TensorProto](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
         case tag =>
           if (_unknownFields__ == null) {
             _unknownFields__ = new _root_.scalapb.UnknownFieldSet.Builder()
@@ -182,46 +177,46 @@ object BoundedTensorSpecProto extends scalapb.GeneratedMessageCompanion[tensorbo
       _root_.scala.Predef.require(__fieldsMap.keys.forall(_.containingMessage eq scalaDescriptor), "FieldDescriptor does not match message type.")
       tensorboard.struct.BoundedTensorSpecProto(
         name = __fieldsMap.get(scalaDescriptor.findFieldByNumber(1).get).map(_.as[_root_.scala.Predef.String]).getOrElse(""),
-        shape = __fieldsMap.get(scalaDescriptor.findFieldByNumber(2).get).flatMap(_.as[_root_.scala.Option[TensorShapeProto]]),
-        dtype = types.DataType.fromValue(__fieldsMap.get(scalaDescriptor.findFieldByNumber(3).get).map(_.as[_root_.scalapb.descriptors.EnumValueDescriptor]).getOrElse(types.DataType.DT_INVALID.scalaValueDescriptor).number),
-        minimum = __fieldsMap.get(scalaDescriptor.findFieldByNumber(4).get).flatMap(_.as[_root_.scala.Option[TensorProto]]),
-        maximum = __fieldsMap.get(scalaDescriptor.findFieldByNumber(5).get).flatMap(_.as[_root_.scala.Option[TensorProto]])
+        shape = __fieldsMap.get(scalaDescriptor.findFieldByNumber(2).get).flatMap(_.as[_root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto]]),
+        dtype = org.tensorflow.framework.types.DataType.fromValue(__fieldsMap.get(scalaDescriptor.findFieldByNumber(3).get).map(_.as[_root_.scalapb.descriptors.EnumValueDescriptor]).getOrElse(org.tensorflow.framework.types.DataType.DT_INVALID.scalaValueDescriptor).number),
+        minimum = __fieldsMap.get(scalaDescriptor.findFieldByNumber(4).get).flatMap(_.as[_root_.scala.Option[org.tensorflow.framework.tensor.TensorProto]]),
+        maximum = __fieldsMap.get(scalaDescriptor.findFieldByNumber(5).get).flatMap(_.as[_root_.scala.Option[org.tensorflow.framework.tensor.TensorProto]])
       )
     case _ => throw new RuntimeException("Expected PMessage")
   }
   def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.struct.StructProto.javaDescriptor.getMessageTypes().get(8)
   def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.struct.StructProto.scalaDescriptor.messages(8)
-  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-    var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+    var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
     (__number: @_root_.scala.unchecked) match {
-      case 2 => __out = tensor_shape.TensorShapeProto
-      case 4 => __out = tensor.TensorProto
-      case 5 => __out = tensor.TensorProto
+      case 2 => __out = org.tensorflow.framework.tensor_shape.TensorShapeProto
+      case 4 => __out = org.tensorflow.framework.tensor.TensorProto
+      case 5 => __out = org.tensorflow.framework.tensor.TensorProto
     }
     __out
   }
-  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = {
+  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= {
     (__fieldNumber: @_root_.scala.unchecked) match {
-      case 3 => types.DataType
+      case 3 => org.tensorflow.framework.types.DataType
     }
   }
   lazy val defaultInstance = tensorboard.struct.BoundedTensorSpecProto(
     name = "",
     shape = _root_.scala.None,
-    dtype = types.DataType.DT_INVALID,
+    dtype = org.tensorflow.framework.types.DataType.DT_INVALID,
     minimum = _root_.scala.None,
     maximum = _root_.scala.None
   )
   implicit class BoundedTensorSpecProtoLens[UpperPB](_l: _root_.scalapb.lenses.Lens[UpperPB, tensorboard.struct.BoundedTensorSpecProto]) extends _root_.scalapb.lenses.ObjectLens[UpperPB, tensorboard.struct.BoundedTensorSpecProto](_l) {
     def name: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field(_.name)((c_, f_) => c_.copy(name = f_))
-    def shape: _root_.scalapb.lenses.Lens[UpperPB, TensorShapeProto] = field(_.getShape)((c_, f_) => c_.copy(shape = _root_.scala.Option(f_)))
-    def optionalShape: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[TensorShapeProto]] = field(_.shape)((c_, f_) => c_.copy(shape = f_))
-    def dtype: _root_.scalapb.lenses.Lens[UpperPB, DataType] = field(_.dtype)((c_, f_) => c_.copy(dtype = f_))
-    def minimum: _root_.scalapb.lenses.Lens[UpperPB, TensorProto] = field(_.getMinimum)((c_, f_) => c_.copy(minimum = _root_.scala.Option(f_)))
-    def optionalMinimum: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[TensorProto]] = field(_.minimum)((c_, f_) => c_.copy(minimum = f_))
-    def maximum: _root_.scalapb.lenses.Lens[UpperPB, TensorProto] = field(_.getMaximum)((c_, f_) => c_.copy(maximum = _root_.scala.Option(f_)))
-    def optionalMaximum: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[TensorProto]] = field(_.maximum)((c_, f_) => c_.copy(maximum = f_))
+    def shape: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.tensor_shape.TensorShapeProto] = field(_.getShape)((c_, f_) => c_.copy(shape = _root_.scala.Option(f_)))
+    def optionalShape: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto]] = field(_.shape)((c_, f_) => c_.copy(shape = f_))
+    def dtype: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.types.DataType] = field(_.dtype)((c_, f_) => c_.copy(dtype = f_))
+    def minimum: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.tensor.TensorProto] = field(_.getMinimum)((c_, f_) => c_.copy(minimum = _root_.scala.Option(f_)))
+    def optionalMinimum: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[org.tensorflow.framework.tensor.TensorProto]] = field(_.minimum)((c_, f_) => c_.copy(minimum = f_))
+    def maximum: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.tensor.TensorProto] = field(_.getMaximum)((c_, f_) => c_.copy(maximum = _root_.scala.Option(f_)))
+    def optionalMaximum: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[org.tensorflow.framework.tensor.TensorProto]] = field(_.maximum)((c_, f_) => c_.copy(maximum = f_))
   }
   final val NAME_FIELD_NUMBER = 1
   final val SHAPE_FIELD_NUMBER = 2
@@ -229,11 +224,11 @@ object BoundedTensorSpecProto extends scalapb.GeneratedMessageCompanion[tensorbo
   final val MINIMUM_FIELD_NUMBER = 4
   final val MAXIMUM_FIELD_NUMBER = 5
   def of(
-          name: _root_.scala.Predef.String,
-          shape: _root_.scala.Option[TensorShapeProto],
-          dtype: DataType,
-          minimum: _root_.scala.Option[TensorProto],
-          maximum: _root_.scala.Option[TensorProto]
+    name: _root_.scala.Predef.String,
+    shape: _root_.scala.Option[org.tensorflow.framework.tensor_shape.TensorShapeProto],
+    dtype: org.tensorflow.framework.types.DataType,
+    minimum: _root_.scala.Option[org.tensorflow.framework.tensor.TensorProto],
+    maximum: _root_.scala.Option[org.tensorflow.framework.tensor.TensorProto]
   ): _root_.tensorboard.struct.BoundedTensorSpecProto = _root_.tensorboard.struct.BoundedTensorSpecProto(
     name,
     shape,

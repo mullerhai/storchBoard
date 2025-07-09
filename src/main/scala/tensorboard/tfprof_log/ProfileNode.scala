@@ -3,9 +3,6 @@
 
 package tensorboard.tfprof_log
 
-import tensorflow.framework.attr_value
-import tensorflow.framework.attr_value.AttrValue
-
 /** @param name
   *   graph node name.
   * @param op
@@ -17,23 +14,23 @@ import tensorflow.framework.attr_value.AttrValue
   */
 @SerialVersionUID(0L)
 final case class ProfileNode(
-                              name: _root_.scala.Predef.String = "",
-                              op: _root_.scala.Predef.String = "",
-                              id: _root_.scala.Long = 0L,
-                              inputs: _root_.scala.collection.immutable.Map[_root_.scala.Int, _root_.scala.Long] = _root_.scala.collection.immutable.Map.empty,
-                              inputShapes: _root_.scala.collection.immutable.Map[_root_.scala.Int, tensorboard.tfprof_log.Tuple] = _root_.scala.collection.immutable.Map.empty,
-                              outputs: _root_.scala.collection.immutable.Map[_root_.scala.Int, _root_.scala.Long] = _root_.scala.collection.immutable.Map.empty,
-                              outputShapes: _root_.scala.collection.immutable.Map[_root_.scala.Int, tensorboard.tfprof_log.Tuple] = _root_.scala.collection.immutable.Map.empty,
-                              srcOutputIndex: _root_.scala.collection.immutable.Map[_root_.scala.Long, _root_.scala.Int] = _root_.scala.collection.immutable.Map.empty,
-                              shape: _root_.scala.Seq[_root_.scala.Long] = _root_.scala.Seq.empty,
-                              opTypes: _root_.scala.Seq[_root_.scala.Predef.String] = _root_.scala.Seq.empty,
-                              canonicalDevice: _root_.scala.Predef.String = "",
-                              hostDevice: _root_.scala.Predef.String = "",
-                              floatOps: _root_.scala.Long = 0L,
-                              trace: _root_.scala.Option[tensorboard.tfprof_log.CodeDef] = _root_.scala.None,
-                              attrs: _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, AttrValue] = _root_.scala.collection.immutable.Map.empty,
-                              execs: _root_.scala.collection.immutable.Map[_root_.scala.Long, tensorboard.tfprof_log.ExecProfile] = _root_.scala.collection.immutable.Map.empty,
-                              unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
+    name: _root_.scala.Predef.String = "",
+    op: _root_.scala.Predef.String = "",
+    id: _root_.scala.Long = 0L,
+    inputs: _root_.scala.collection.immutable.Map[_root_.scala.Int, _root_.scala.Long] = _root_.scala.collection.immutable.Map.empty,
+    inputShapes: _root_.scala.collection.immutable.Map[_root_.scala.Int, tensorboard.tfprof_log.Tuple] = _root_.scala.collection.immutable.Map.empty,
+    outputs: _root_.scala.collection.immutable.Map[_root_.scala.Int, _root_.scala.Long] = _root_.scala.collection.immutable.Map.empty,
+    outputShapes: _root_.scala.collection.immutable.Map[_root_.scala.Int, tensorboard.tfprof_log.Tuple] = _root_.scala.collection.immutable.Map.empty,
+    srcOutputIndex: _root_.scala.collection.immutable.Map[_root_.scala.Long, _root_.scala.Int] = _root_.scala.collection.immutable.Map.empty,
+    shape: _root_.scala.Seq[_root_.scala.Long] = _root_.scala.Seq.empty,
+    opTypes: _root_.scala.Seq[_root_.scala.Predef.String] = _root_.scala.Seq.empty,
+    canonicalDevice: _root_.scala.Predef.String = "",
+    hostDevice: _root_.scala.Predef.String = "",
+    floatOps: _root_.scala.Long = 0L,
+    trace: _root_.scala.Option[tensorboard.tfprof_log.CodeDef] = _root_.scala.None,
+    attrs: _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, org.tensorflow.framework.attr_value.AttrValue] = _root_.scala.collection.immutable.Map.empty,
+    execs: _root_.scala.collection.immutable.Map[_root_.scala.Long, tensorboard.tfprof_log.ExecProfile] = _root_.scala.collection.immutable.Map.empty,
+    unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
     ) extends scalapb.GeneratedMessage with scalapb.lenses.Updatable[ProfileNode] {
     private[this] def shapeSerializedSize = {
       if (__shapeSerializedSizeField == 0) __shapeSerializedSizeField = {
@@ -276,9 +273,9 @@ final case class ProfileNode(
     def clearTrace: ProfileNode = copy(trace = _root_.scala.None)
     def withTrace(__v: tensorboard.tfprof_log.CodeDef): ProfileNode = copy(trace = Option(__v))
     def clearAttrs = copy(attrs = _root_.scala.collection.immutable.Map.empty)
-    def addAttrs(__vs: (_root_.scala.Predef.String, AttrValue) *): ProfileNode = addAllAttrs(__vs)
-    def addAllAttrs(__vs: Iterable[(_root_.scala.Predef.String, AttrValue)]): ProfileNode = copy(attrs = attrs ++ __vs)
-    def withAttrs(__v: _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, AttrValue]): ProfileNode = copy(attrs = __v)
+    def addAttrs(__vs: (_root_.scala.Predef.String, org.tensorflow.framework.attr_value.AttrValue) *): ProfileNode = addAllAttrs(__vs)
+    def addAllAttrs(__vs: Iterable[(_root_.scala.Predef.String, org.tensorflow.framework.attr_value.AttrValue)]): ProfileNode = copy(attrs = attrs ++ __vs)
+    def withAttrs(__v: _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, org.tensorflow.framework.attr_value.AttrValue]): ProfileNode = copy(attrs = __v)
     def clearExecs = copy(execs = _root_.scala.collection.immutable.Map.empty)
     def addExecs(__vs: (_root_.scala.Long, tensorboard.tfprof_log.ExecProfile) *): ProfileNode = addAllExecs(__vs)
     def addAllExecs(__vs: Iterable[(_root_.scala.Long, tensorboard.tfprof_log.ExecProfile)]): ProfileNode = copy(execs = execs ++ __vs)
@@ -366,7 +363,7 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
     var __hostDevice: _root_.scala.Predef.String = ""
     var __floatOps: _root_.scala.Long = 0L
     var __trace: _root_.scala.Option[tensorboard.tfprof_log.CodeDef] = _root_.scala.None
-    val __attrs: _root_.scala.collection.mutable.Builder[(_root_.scala.Predef.String, AttrValue), _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, AttrValue]] = _root_.scala.collection.immutable.Map.newBuilder[_root_.scala.Predef.String, AttrValue]
+    val __attrs: _root_.scala.collection.mutable.Builder[(_root_.scala.Predef.String, org.tensorflow.framework.attr_value.AttrValue), _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, org.tensorflow.framework.attr_value.AttrValue]] = _root_.scala.collection.immutable.Map.newBuilder[_root_.scala.Predef.String, org.tensorflow.framework.attr_value.AttrValue]
     val __execs: _root_.scala.collection.mutable.Builder[(_root_.scala.Long, tensorboard.tfprof_log.ExecProfile), _root_.scala.collection.immutable.Map[_root_.scala.Long, tensorboard.tfprof_log.ExecProfile]] = _root_.scala.collection.immutable.Map.newBuilder[_root_.scala.Long, tensorboard.tfprof_log.ExecProfile]
     var `_unknownFields__`: _root_.scalapb.UnknownFieldSet.Builder = null
     var _done__ = false
@@ -466,8 +463,8 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
   }
   def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.tfprof_log.TfprofLogProto.javaDescriptor.getMessageTypes().get(4)
   def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.tfprof_log.TfprofLogProto.scalaDescriptor.messages(4)
-  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-    var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+    var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
     (__number: @_root_.scala.unchecked) match {
       case 2 => __out = tensorboard.tfprof_log.ProfileNode.InputsEntry
       case 16 => __out = tensorboard.tfprof_log.ProfileNode.InputShapesEntry
@@ -480,8 +477,8 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
     }
     __out
   }
-  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] =
-    Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]](
+  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] =
+    Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]](
       _root_.tensorboard.tfprof_log.ProfileNode.InputsEntry,
       _root_.tensorboard.tfprof_log.ProfileNode.InputShapesEntry,
       _root_.tensorboard.tfprof_log.ProfileNode.OutputsEntry,
@@ -490,7 +487,7 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
       _root_.tensorboard.tfprof_log.ProfileNode.AttrsEntry,
       _root_.tensorboard.tfprof_log.ProfileNode.ExecsEntry
     )
-  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
   lazy val defaultInstance = tensorboard.tfprof_log.ProfileNode(
     name = "",
     op = "",
@@ -627,9 +624,9 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
     }
     def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.tfprof_log.ProfileNode.javaDescriptor.getNestedTypes().get(0)
     def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.tfprof_log.ProfileNode.scalaDescriptor.nestedMessages(0)
-    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = throw new MatchError(__number)
-    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= throw new MatchError(__number)
+    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
     lazy val defaultInstance = tensorboard.tfprof_log.ProfileNode.InputsEntry(
       key = 0,
       value = 0L
@@ -767,15 +764,15 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
     }
     def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.tfprof_log.ProfileNode.javaDescriptor.getNestedTypes().get(1)
     def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.tfprof_log.ProfileNode.scalaDescriptor.nestedMessages(1)
-    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-      var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+      var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
       (__number: @_root_.scala.unchecked) match {
         case 2 => __out = tensorboard.tfprof_log.Tuple
       }
       __out
     }
-    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
     lazy val defaultInstance = tensorboard.tfprof_log.ProfileNode.InputShapesEntry(
       key = 0,
       value = _root_.scala.None
@@ -918,9 +915,9 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
     }
     def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.tfprof_log.ProfileNode.javaDescriptor.getNestedTypes().get(2)
     def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.tfprof_log.ProfileNode.scalaDescriptor.nestedMessages(2)
-    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = throw new MatchError(__number)
-    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= throw new MatchError(__number)
+    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
     lazy val defaultInstance = tensorboard.tfprof_log.ProfileNode.OutputsEntry(
       key = 0,
       value = 0L
@@ -1058,15 +1055,15 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
     }
     def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.tfprof_log.ProfileNode.javaDescriptor.getNestedTypes().get(3)
     def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.tfprof_log.ProfileNode.scalaDescriptor.nestedMessages(3)
-    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-      var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+      var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
       (__number: @_root_.scala.unchecked) match {
         case 2 => __out = tensorboard.tfprof_log.Tuple
       }
       __out
     }
-    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
     lazy val defaultInstance = tensorboard.tfprof_log.ProfileNode.OutputShapesEntry(
       key = 0,
       value = _root_.scala.None
@@ -1209,9 +1206,9 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
     }
     def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.tfprof_log.ProfileNode.javaDescriptor.getNestedTypes().get(4)
     def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.tfprof_log.ProfileNode.scalaDescriptor.nestedMessages(4)
-    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = throw new MatchError(__number)
-    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= throw new MatchError(__number)
+    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
     lazy val defaultInstance = tensorboard.tfprof_log.ProfileNode.SrcOutputIndexEntry(
       key = 0L,
       value = 0
@@ -1237,9 +1234,9 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
   
   @SerialVersionUID(0L)
   final case class AttrsEntry(
-                               key: _root_.scala.Predef.String = "",
-                               value: _root_.scala.Option[AttrValue] = _root_.scala.None,
-                               unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
+      key: _root_.scala.Predef.String = "",
+      value: _root_.scala.Option[org.tensorflow.framework.attr_value.AttrValue] = _root_.scala.None,
+      unknownFields: _root_.scalapb.UnknownFieldSet = _root_.scalapb.UnknownFieldSet.empty
       ) extends scalapb.GeneratedMessage with scalapb.lenses.Updatable[AttrsEntry] {
       @transient
       private[this] var __serializedSizeMemoized: _root_.scala.Int = 0
@@ -1284,9 +1281,9 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
         unknownFields.writeTo(_output__)
       }
       def withKey(__v: _root_.scala.Predef.String): AttrsEntry = copy(key = __v)
-      def getValue: AttrValue = value.getOrElse(attr_value.AttrValue.defaultInstance)
+      def getValue: org.tensorflow.framework.attr_value.AttrValue = value.getOrElse(org.tensorflow.framework.attr_value.AttrValue.defaultInstance)
       def clearValue: AttrsEntry = copy(value = _root_.scala.None)
-      def withValue(__v: AttrValue): AttrsEntry = copy(value = Option(__v))
+      def withValue(__v: org.tensorflow.framework.attr_value.AttrValue): AttrsEntry = copy(value = Option(__v))
       def withUnknownFields(__v: _root_.scalapb.UnknownFieldSet) = copy(unknownFields = __v)
       def discardUnknownFields = copy(unknownFields = _root_.scalapb.UnknownFieldSet.empty)
       def getFieldByNumber(__fieldNumber: _root_.scala.Int): _root_.scala.Any = {
@@ -1314,7 +1311,7 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
     implicit def messageCompanion: scalapb.GeneratedMessageCompanion[tensorboard.tfprof_log.ProfileNode.AttrsEntry] = this
     def parseFrom(`_input__`: _root_.com.google.protobuf.CodedInputStream): tensorboard.tfprof_log.ProfileNode.AttrsEntry = {
       var __key: _root_.scala.Predef.String = ""
-      var __value: _root_.scala.Option[AttrValue] = _root_.scala.None
+      var __value: _root_.scala.Option[org.tensorflow.framework.attr_value.AttrValue] = _root_.scala.None
       var `_unknownFields__`: _root_.scalapb.UnknownFieldSet.Builder = null
       var _done__ = false
       while (!_done__) {
@@ -1324,7 +1321,7 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
           case 10 =>
             __key = _input__.readStringRequireUtf8()
           case 18 =>
-            __value = _root_.scala.Option(__value.fold(_root_.scalapb.LiteParser.readMessage[AttrValue](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
+            __value = _root_.scala.Option(__value.fold(_root_.scalapb.LiteParser.readMessage[org.tensorflow.framework.attr_value.AttrValue](_input__))(_root_.scalapb.LiteParser.readMessage(_input__, _)))
           case tag =>
             if (_unknownFields__ == null) {
               _unknownFields__ = new _root_.scalapb.UnknownFieldSet.Builder()
@@ -1343,38 +1340,38 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
         _root_.scala.Predef.require(__fieldsMap.keys.forall(_.containingMessage eq scalaDescriptor), "FieldDescriptor does not match message type.")
         tensorboard.tfprof_log.ProfileNode.AttrsEntry(
           key = __fieldsMap.get(scalaDescriptor.findFieldByNumber(1).get).map(_.as[_root_.scala.Predef.String]).getOrElse(""),
-          value = __fieldsMap.get(scalaDescriptor.findFieldByNumber(2).get).flatMap(_.as[_root_.scala.Option[AttrValue]])
+          value = __fieldsMap.get(scalaDescriptor.findFieldByNumber(2).get).flatMap(_.as[_root_.scala.Option[org.tensorflow.framework.attr_value.AttrValue]])
         )
       case _ => throw new RuntimeException("Expected PMessage")
     }
     def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.tfprof_log.ProfileNode.javaDescriptor.getNestedTypes().get(5)
     def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.tfprof_log.ProfileNode.scalaDescriptor.nestedMessages(5)
-    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-      var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+      var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
       (__number: @_root_.scala.unchecked) match {
-        case 2 => __out = attr_value.AttrValue
+        case 2 => __out = org.tensorflow.framework.attr_value.AttrValue
       }
       __out
     }
-    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
     lazy val defaultInstance = tensorboard.tfprof_log.ProfileNode.AttrsEntry(
       key = "",
       value = _root_.scala.None
     )
     implicit class AttrsEntryLens[UpperPB](_l: _root_.scalapb.lenses.Lens[UpperPB, tensorboard.tfprof_log.ProfileNode.AttrsEntry]) extends _root_.scalapb.lenses.ObjectLens[UpperPB, tensorboard.tfprof_log.ProfileNode.AttrsEntry](_l) {
       def key: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Predef.String] = field(_.key)((c_, f_) => c_.copy(key = f_))
-      def value: _root_.scalapb.lenses.Lens[UpperPB, AttrValue] = field(_.getValue)((c_, f_) => c_.copy(value = _root_.scala.Option(f_)))
-      def optionalValue: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[AttrValue]] = field(_.value)((c_, f_) => c_.copy(value = f_))
+      def value: _root_.scalapb.lenses.Lens[UpperPB, org.tensorflow.framework.attr_value.AttrValue] = field(_.getValue)((c_, f_) => c_.copy(value = _root_.scala.Option(f_)))
+      def optionalValue: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[org.tensorflow.framework.attr_value.AttrValue]] = field(_.value)((c_, f_) => c_.copy(value = f_))
     }
     final val KEY_FIELD_NUMBER = 1
     final val VALUE_FIELD_NUMBER = 2
     @transient
-    implicit val keyValueMapper: _root_.scalapb.TypeMapper[tensorboard.tfprof_log.ProfileNode.AttrsEntry, (_root_.scala.Predef.String, AttrValue)] =
-      _root_.scalapb.TypeMapper[tensorboard.tfprof_log.ProfileNode.AttrsEntry, (_root_.scala.Predef.String, AttrValue)](__m => (__m.key, __m.getValue))(__p => tensorboard.tfprof_log.ProfileNode.AttrsEntry(__p._1, Some(__p._2)))
+    implicit val keyValueMapper: _root_.scalapb.TypeMapper[tensorboard.tfprof_log.ProfileNode.AttrsEntry, (_root_.scala.Predef.String, org.tensorflow.framework.attr_value.AttrValue)] =
+      _root_.scalapb.TypeMapper[tensorboard.tfprof_log.ProfileNode.AttrsEntry, (_root_.scala.Predef.String, org.tensorflow.framework.attr_value.AttrValue)](__m => (__m.key, __m.getValue))(__p => tensorboard.tfprof_log.ProfileNode.AttrsEntry(__p._1, Some(__p._2)))
     def of(
       key: _root_.scala.Predef.String,
-      value: _root_.scala.Option[AttrValue]
+      value: _root_.scala.Option[org.tensorflow.framework.attr_value.AttrValue]
     ): _root_.tensorboard.tfprof_log.ProfileNode.AttrsEntry = _root_.tensorboard.tfprof_log.ProfileNode.AttrsEntry(
       key,
       value
@@ -1496,15 +1493,15 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
     }
     def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.tfprof_log.ProfileNode.javaDescriptor.getNestedTypes().get(6)
     def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.tfprof_log.ProfileNode.scalaDescriptor.nestedMessages(6)
-    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-      var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+      var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
       (__number: @_root_.scala.unchecked) match {
         case 2 => __out = tensorboard.tfprof_log.ExecProfile
       }
       __out
     }
-    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
     lazy val defaultInstance = tensorboard.tfprof_log.ProfileNode.ExecsEntry(
       key = 0L,
       value = _root_.scala.None
@@ -1545,7 +1542,7 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
     def floatOps: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Long] = field(_.floatOps)((c_, f_) => c_.copy(floatOps = f_))
     def trace: _root_.scalapb.lenses.Lens[UpperPB, tensorboard.tfprof_log.CodeDef] = field(_.getTrace)((c_, f_) => c_.copy(trace = _root_.scala.Option(f_)))
     def optionalTrace: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.Option[tensorboard.tfprof_log.CodeDef]] = field(_.trace)((c_, f_) => c_.copy(trace = f_))
-    def attrs: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, AttrValue]] = field(_.attrs)((c_, f_) => c_.copy(attrs = f_))
+    def attrs: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, org.tensorflow.framework.attr_value.AttrValue]] = field(_.attrs)((c_, f_) => c_.copy(attrs = f_))
     def execs: _root_.scalapb.lenses.Lens[UpperPB, _root_.scala.collection.immutable.Map[_root_.scala.Long, tensorboard.tfprof_log.ExecProfile]] = field(_.execs)((c_, f_) => c_.copy(execs = f_))
   }
   final val NAME_FIELD_NUMBER = 1
@@ -1575,26 +1572,26 @@ object ProfileNode extends scalapb.GeneratedMessageCompanion[tensorboard.tfprof_
   @transient
   private[tfprof_log] val _typemapper_srcOutputIndex: _root_.scalapb.TypeMapper[tensorboard.tfprof_log.ProfileNode.SrcOutputIndexEntry, (_root_.scala.Long, _root_.scala.Int)] = implicitly[_root_.scalapb.TypeMapper[tensorboard.tfprof_log.ProfileNode.SrcOutputIndexEntry, (_root_.scala.Long, _root_.scala.Int)]]
   @transient
-  private[tfprof_log] val _typemapper_attrs: _root_.scalapb.TypeMapper[tensorboard.tfprof_log.ProfileNode.AttrsEntry, (_root_.scala.Predef.String, AttrValue)] = implicitly[_root_.scalapb.TypeMapper[tensorboard.tfprof_log.ProfileNode.AttrsEntry, (_root_.scala.Predef.String, AttrValue)]]
+  private[tfprof_log] val _typemapper_attrs: _root_.scalapb.TypeMapper[tensorboard.tfprof_log.ProfileNode.AttrsEntry, (_root_.scala.Predef.String, org.tensorflow.framework.attr_value.AttrValue)] = implicitly[_root_.scalapb.TypeMapper[tensorboard.tfprof_log.ProfileNode.AttrsEntry, (_root_.scala.Predef.String, org.tensorflow.framework.attr_value.AttrValue)]]
   @transient
   private[tfprof_log] val _typemapper_execs: _root_.scalapb.TypeMapper[tensorboard.tfprof_log.ProfileNode.ExecsEntry, (_root_.scala.Long, tensorboard.tfprof_log.ExecProfile)] = implicitly[_root_.scalapb.TypeMapper[tensorboard.tfprof_log.ProfileNode.ExecsEntry, (_root_.scala.Long, tensorboard.tfprof_log.ExecProfile)]]
   def of(
-          name: _root_.scala.Predef.String,
-          op: _root_.scala.Predef.String,
-          id: _root_.scala.Long,
-          inputs: _root_.scala.collection.immutable.Map[_root_.scala.Int, _root_.scala.Long],
-          inputShapes: _root_.scala.collection.immutable.Map[_root_.scala.Int, tensorboard.tfprof_log.Tuple],
-          outputs: _root_.scala.collection.immutable.Map[_root_.scala.Int, _root_.scala.Long],
-          outputShapes: _root_.scala.collection.immutable.Map[_root_.scala.Int, tensorboard.tfprof_log.Tuple],
-          srcOutputIndex: _root_.scala.collection.immutable.Map[_root_.scala.Long, _root_.scala.Int],
-          shape: _root_.scala.Seq[_root_.scala.Long],
-          opTypes: _root_.scala.Seq[_root_.scala.Predef.String],
-          canonicalDevice: _root_.scala.Predef.String,
-          hostDevice: _root_.scala.Predef.String,
-          floatOps: _root_.scala.Long,
-          trace: _root_.scala.Option[tensorboard.tfprof_log.CodeDef],
-          attrs: _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, AttrValue],
-          execs: _root_.scala.collection.immutable.Map[_root_.scala.Long, tensorboard.tfprof_log.ExecProfile]
+    name: _root_.scala.Predef.String,
+    op: _root_.scala.Predef.String,
+    id: _root_.scala.Long,
+    inputs: _root_.scala.collection.immutable.Map[_root_.scala.Int, _root_.scala.Long],
+    inputShapes: _root_.scala.collection.immutable.Map[_root_.scala.Int, tensorboard.tfprof_log.Tuple],
+    outputs: _root_.scala.collection.immutable.Map[_root_.scala.Int, _root_.scala.Long],
+    outputShapes: _root_.scala.collection.immutable.Map[_root_.scala.Int, tensorboard.tfprof_log.Tuple],
+    srcOutputIndex: _root_.scala.collection.immutable.Map[_root_.scala.Long, _root_.scala.Int],
+    shape: _root_.scala.Seq[_root_.scala.Long],
+    opTypes: _root_.scala.Seq[_root_.scala.Predef.String],
+    canonicalDevice: _root_.scala.Predef.String,
+    hostDevice: _root_.scala.Predef.String,
+    floatOps: _root_.scala.Long,
+    trace: _root_.scala.Option[tensorboard.tfprof_log.CodeDef],
+    attrs: _root_.scala.collection.immutable.Map[_root_.scala.Predef.String, org.tensorflow.framework.attr_value.AttrValue],
+    execs: _root_.scala.collection.immutable.Map[_root_.scala.Long, tensorboard.tfprof_log.ExecProfile]
   ): _root_.tensorboard.tfprof_log.ProfileNode = _root_.tensorboard.tfprof_log.ProfileNode(
     name,
     op,

@@ -93,18 +93,18 @@ object TrackableObjectGraph extends scalapb.GeneratedMessageCompanion[tensorboar
   }
   def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.trackable_object_graph.TrackableObjectGraphProto.javaDescriptor.getMessageTypes().get(0)
   def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.trackable_object_graph.TrackableObjectGraphProto.scalaDescriptor.messages(0)
-  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-    var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+  def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+    var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
     (__number: @_root_.scala.unchecked) match {
       case 1 => __out = tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject
     }
     __out
   }
-  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] =
-    Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]](
+  lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] =
+    Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]](
       _root_.tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject
     )
-  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+  def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
   lazy val defaultInstance = tensorboard.trackable_object_graph.TrackableObjectGraph(
     nodes = _root_.scala.Seq.empty
   )
@@ -299,8 +299,8 @@ object TrackableObjectGraph extends scalapb.GeneratedMessageCompanion[tensorboar
     }
     def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.trackable_object_graph.TrackableObjectGraph.javaDescriptor.getNestedTypes().get(0)
     def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.trackable_object_graph.TrackableObjectGraph.scalaDescriptor.nestedMessages(0)
-    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = {
-      var __out: _root_.scalapb.GeneratedMessageCompanion[_] = null
+    def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= {
+      var __out: _root_.scalapb.GeneratedMessageCompanion[?]= null
       (__number: @_root_.scala.unchecked) match {
         case 1 => __out = tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject.ObjectReference
         case 2 => __out = tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject.SerializedTensor
@@ -310,13 +310,13 @@ object TrackableObjectGraph extends scalapb.GeneratedMessageCompanion[tensorboar
       }
       __out
     }
-    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] =
-      Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]](
+    lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] =
+      Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]](
         _root_.tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject.ObjectReference,
         _root_.tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject.SerializedTensor,
         _root_.tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject.SlotVariableReference
       )
-    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+    def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
     lazy val defaultInstance = tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject(
       children = _root_.scala.Seq.empty,
       attributes = _root_.scala.Seq.empty,
@@ -448,9 +448,9 @@ object TrackableObjectGraph extends scalapb.GeneratedMessageCompanion[tensorboar
       }
       def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject.javaDescriptor.getNestedTypes().get(0)
       def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject.scalaDescriptor.nestedMessages(0)
-      def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = throw new MatchError(__number)
-      lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-      def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+      def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= throw new MatchError(__number)
+      lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+      def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
       lazy val defaultInstance = tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject.ObjectReference(
         nodeId = 0,
         localName = ""
@@ -626,9 +626,9 @@ object TrackableObjectGraph extends scalapb.GeneratedMessageCompanion[tensorboar
       }
       def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject.javaDescriptor.getNestedTypes().get(1)
       def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject.scalaDescriptor.nestedMessages(1)
-      def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = throw new MatchError(__number)
-      lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-      def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+      def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= throw new MatchError(__number)
+      lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+      def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
       lazy val defaultInstance = tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject.SerializedTensor(
         name = "",
         fullName = "",
@@ -806,9 +806,9 @@ object TrackableObjectGraph extends scalapb.GeneratedMessageCompanion[tensorboar
       }
       def javaDescriptor: _root_.com.google.protobuf.Descriptors.Descriptor = tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject.javaDescriptor.getNestedTypes().get(2)
       def scalaDescriptor: _root_.scalapb.descriptors.Descriptor = tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject.scalaDescriptor.nestedMessages(2)
-      def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[_] = throw new MatchError(__number)
-      lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[_ <: _root_.scalapb.GeneratedMessage]] = Seq.empty
-      def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[_] = throw new MatchError(__fieldNumber)
+      def messageCompanionForFieldNumber(__number: _root_.scala.Int): _root_.scalapb.GeneratedMessageCompanion[?]= throw new MatchError(__number)
+      lazy val nestedMessagesCompanions: Seq[_root_.scalapb.GeneratedMessageCompanion[? <: _root_.scalapb.GeneratedMessage]] = Seq.empty
+      def enumCompanionForFieldNumber(__fieldNumber: _root_.scala.Int): _root_.scalapb.GeneratedEnumCompanion[?]= throw new MatchError(__fieldNumber)
       lazy val defaultInstance = tensorboard.trackable_object_graph.TrackableObjectGraph.TrackableObject.SlotVariableReference(
         originalVariableNodeId = 0,
         slotName = "",
