@@ -9,8 +9,6 @@ object SummaryReaderDeom {
     val logDir = "./logs"
     val tfEventFilePath = "train.tfevents"
     val summaryReader = new SummaryReader(logDir, tfEventFilePath)
-    // 添加标量数据
-    //    summaryWriter.addScalar("accuracy", 0.95, 100)
     summaryReader.readEvent()
   }
 }
